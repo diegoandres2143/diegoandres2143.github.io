@@ -159,7 +159,7 @@ function showNotification(message, type = 'info') {
   }, 3000);
 }
 
-// Scroll to top functionality
+// Scroll to top functionality mejorado
 function initScrollToTop() {
   const scrollBtn = document.getElementById('scrollToTop');
   if (!scrollBtn) return;
@@ -177,6 +177,11 @@ function initScrollToTop() {
       top: 0,
       behavior: 'smooth'
     });
+    
+    // Recargar todas las animaciones después de volver arriba
+    setTimeout(() => {
+      refreshAllAnimations();
+    }, 600);
   });
   
   window.addEventListener('scroll', toggleScrollButton);
@@ -282,15 +287,13 @@ function initSmoothScrolling() {
   });
 }
 
-// Mobile menu functionality
+// Mobile menu functionality mejorado
 function toggleMobileMenu() {
   const hamburger = document.getElementById('hamburger');
   const overlay = document.getElementById('mobileMenuOverlay');
   
   hamburger.classList.toggle('active');
   overlay.classList.toggle('active');
-  
-  // Don't prevent scroll - allow navigation within the mobile menu
 }
 
 function closeMobileMenu() {
@@ -299,6 +302,11 @@ function closeMobileMenu() {
   
   hamburger.classList.remove('active');
   overlay.classList.remove('active');
+  
+  // Recargar animaciones después de cerrar el menú móvil
+  setTimeout(() => {
+    refreshAllAnimations();
+  }, 300);
 }
 
 function initMobileMenu() {
@@ -368,18 +376,89 @@ function initStickyNavbar() {
   handleScroll();
 }
 
+// Enhanced AOS configuration and control
+let lastScrollDirection = 'down';
+let lastScrollY = 0;
+
+function initEnhancedAOS() {
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 1000,
+      once: false, // Permite que las animaciones se repitan
+      offset: 150, // Más offset para mejor posicionamiento
+      delay: 0,
+      easing: 'ease-out-cubic',
+      mirror: false, // Permite animaciones al hacer scroll hacia arriba
+      anchorPlacement: 'top-bottom'
+    });
+    
+    // Control de dirección de scroll para animaciones
+    window.addEventListener('scroll', function() {
+      const currentScrollY = window.scrollY;
+      const scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
+      
+      // Solo refresh AOS cuando se hace scroll hacia abajo
+      if (scrollDirection === 'down' && lastScrollDirection === 'up') {
+        AOS.refresh();
+      }
+      
+      lastScrollDirection = scrollDirection;
+      lastScrollY = currentScrollY;
+    });
+  }
+}
+
+// Función para recargar animaciones completamente
+function refreshAllAnimations() {
+  if (typeof AOS !== 'undefined') {
+    // Reinicializar AOS con nueva configuración
+    AOS.refreshHard();
+    
+    // Pequeño delay para asegurar que se apliquen correctamente
+    setTimeout(() => {
+      AOS.refresh();
+    }, 100);
+  }
+}
+
+// Enhanced smooth scrolling mejorado para navegación
+function initEnhancedSmoothScrolling() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        // Calcular posición con offset para navbar sticky
+        const navbarHeight = document.querySelector('.NavBar')?.offsetHeight || 80;
+        let targetPosition;
+        
+        // Caso especial para el botón "Inicio" - ir al top completo
+        if (this.getAttribute('href') === '#home') {
+          targetPosition = 0;
+        } else {
+          targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+        }
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+        
+        // Recargar animaciones después del scroll
+        setTimeout(() => {
+          refreshAllAnimations();
+        }, 800);
+      }
+    });
+  });
+}
+
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
   console.log('🚀 Initializing Diego\'s Stellar Portfolio...');
   
-  // Initialize AOS if available
-  if (typeof AOS !== 'undefined') {
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100
-    });
-  }
+  // Initialize Enhanced AOS
+  initEnhancedAOS();
   
   // Initialize language system
   const savedLanguage = localStorage.getItem('selectedLanguage') || 'es';
@@ -397,9 +476,9 @@ document.addEventListener('DOMContentLoaded', function() {
   initTimelineAnimations();
   initContactForm();
   initScrollToTop();
-  initSmoothScrolling();
+  initEnhancedSmoothScrolling(); // Usar la versión mejorada
   initStickyNavbar();
-  initMobileMenu(); // Add mobile menu initialization
+  initMobileMenu();
   
   // Initialize stellar effects
   addStellarCSS();
