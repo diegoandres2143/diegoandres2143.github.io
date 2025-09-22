@@ -89,41 +89,167 @@ function flipCard(button) {
   }
 }
 
-// Contact form functionality
+// Contact form functionality using EmailJS Service
 function initContactForm() {
-  // Initialize EmailJS
-  if (typeof emailjs !== 'undefined') {
-    emailjs.init({ publicKey: "yD5u3lncGo8QqqWEC" });
-  }
-  
   const form = document.getElementById('contactForm');
   if (!form) return;
   
-  form.addEventListener('submit', async function(event) {
-    event.preventDefault();
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
     
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    
-    submitBtn.textContent = 'Enviando...';
-    submitBtn.disabled = true;
-    
-    try {
-      if (typeof emailjs !== 'undefined') {
-        await emailjs.sendForm('default_service', 'template_contact', form);
-        showNotification('¡Mensaje enviado correctamente!', 'success');
-        form.reset();
-      } else {
-        showNotification('Servicio de email no disponible', 'error');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      showNotification('Error al enviar el mensaje', 'error');
-    } finally {
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
+    // Verificar cooldown antes de cualquier otra validación
+    if (!validateCooldown()) {
+      return;
     }
+    
+    // Verificar reCAPTCHA
+    if (!validateRecaptcha()) {
+      showNotification('Por favor completa la verificación reCAPTCHA', 'error');
+      return;
+    }
+    
+    // Verificar si EmailJS está configurado
+    if (!window.EMAIL_CONFIG) {
+      showNotification('Servicio de email no configurado', 'error');
+      return;
+    }
+    
+    // Obtener los datos del formulario
+    const nombre = form.querySelector('[name="user_name"]').value;
+    const correo = form.querySelector('[name="user_email"]').value;
+    const asunto = form.querySelector('[name="subject"]').value;
+    const mensaje = form.querySelector('[name="message"]').value;
+    
+    // Crear el objeto con los parámetros para EmailJS
+    const templateParams = {
+      user_name: nombre,
+      user_email: correo,
+      subject: asunto,
+      message: mensaje
+    };
+    
+    // Enviar usando la función que maneja ambos templates
+    enviarCorreoConValidaciones(templateParams);
   });
+}
+
+// Sistema de cooldown de 15 minutos
+function validateCooldown() {
+  const lastSentTime = localStorage.getItem('lastEmailSent');
+  const cooldownPeriod = 15 * 60 * 1000; // 15 minutos en milliseconds
+  
+  if (lastSentTime) {
+    const timeSinceLastSent = Date.now() - parseInt(lastSentTime);
+    const remainingTime = cooldownPeriod - timeSinceLastSent;
+    
+    if (remainingTime > 0) {
+      showCooldownBanner(remainingTime);
+      return false;
+    }
+  }
+  
+  return true;
+}
+
+// Validación de reCAPTCHA
+function validateRecaptcha() {
+  // Verificar si reCAPTCHA está cargado y completado
+  if (typeof grecaptcha === 'undefined') {
+    console.warn('reCAPTCHA no está cargado');
+    return false;
+  }
+  
+  const recaptchaResponse = grecaptcha.getResponse();
+  return recaptchaResponse && recaptchaResponse.length > 0;
+}
+
+// Función mejorada de envío con validaciones
+function enviarCorreoConValidaciones(templateParams) {
+  // Deshabilitar el formulario durante el envío
+  const form = document.getElementById('contactForm');
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalButtonText = submitButton.textContent;
+  
+  submitButton.disabled = true;
+  submitButton.textContent = 'Enviando...';
+  
+  // Enviar el correo
+  enviarCorreo(templateParams)
+    .then(() => {
+      // Guardar timestamp del envío exitoso
+      localStorage.setItem('lastEmailSent', Date.now().toString());
+      
+      // Resetear formulario y reCAPTCHA
+      form.reset();
+      if (typeof grecaptcha !== 'undefined') {
+        grecaptcha.reset();
+      }
+      
+      // Mostrar banner de cooldown
+      showCooldownBanner(15 * 60 * 1000); // 15 minutos
+    })
+    .catch((error) => {
+      console.error('Error al enviar:', error);
+      // En caso de error, no guardar el timestamp
+    })
+    .finally(() => {
+      // Rehabilitar el botón
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    });
+}
+
+// Mostrar cooldown arriba del reCAPTCHA
+function showCooldownBanner(remainingTime) {
+  // Remover mensaje existente si lo hay
+  const existingMessage = document.getElementById('cooldownMessage');
+  if (existingMessage) {
+    existingMessage.remove();
+  }
+  
+  // Encontrar el contenedor del reCAPTCHA
+  const recaptchaContainer = document.querySelector('.recaptcha-container');
+  if (!recaptchaContainer) return;
+  
+  // Crear mensaje de cooldown
+  const cooldownMessage = document.createElement('div');
+  cooldownMessage.id = 'cooldownMessage';
+  cooldownMessage.style.cssText = `
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #ff6b35;
+    font-weight: 600;
+    font-size: 0.9rem;
+    animation: cooldownBlink 1.5s ease-in-out infinite alternate;
+  `;
+  
+  // Insertar antes del contenedor de reCAPTCHA
+  recaptchaContainer.parentNode.insertBefore(cooldownMessage, recaptchaContainer);
+  
+  // Función para actualizar el contador
+  function updateCooldownCounter() {
+    const now = Date.now();
+    const lastSent = parseInt(localStorage.getItem('lastEmailSent'));
+    const elapsed = now - lastSent;
+    const remaining = (15 * 60 * 1000) - elapsed;
+    
+    if (remaining <= 0) {
+      // Tiempo cumplido, remover mensaje
+      cooldownMessage.remove();
+      return;
+    }
+    
+    const minutes = Math.floor(remaining / (60 * 1000));
+    const seconds = Math.floor((remaining % (60 * 1000)) / 1000);
+    
+    cooldownMessage.textContent = `⏰ Siguiente envío en: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+    
+    // Continuar actualizando cada segundo
+    setTimeout(updateCooldownCounter, 1000);
+  }
+  
+  // Iniciar contador
+  updateCooldownCounter();
 }
 
 // Notification system
@@ -487,8 +613,30 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize carousel navigation
   updateNavButtons();
   
+  // Verificar cooldown al cargar la página
+  checkCooldownOnLoad();
+  
   console.log('✨ Portfolio initialized successfully!');
 });
+
+// Verificar si hay un cooldown activo al cargar la página
+function checkCooldownOnLoad() {
+  const lastSentTime = localStorage.getItem('lastEmailSent');
+  const cooldownPeriod = 15 * 60 * 1000; // 15 minutos
+  
+  if (lastSentTime) {
+    const timeSinceLastSent = Date.now() - parseInt(lastSentTime);
+    const remainingTime = cooldownPeriod - timeSinceLastSent;
+    
+    if (remainingTime > 0) {
+      // Hay un cooldown activo, mostrar mensaje
+      // Esperar un poco a que se cargue el DOM del formulario
+      setTimeout(() => {
+        showCooldownBanner(remainingTime);
+      }, 1000);
+    }
+  }
+}
 
 // Make functions globally available
 window.moveCarousel = moveCarousel;

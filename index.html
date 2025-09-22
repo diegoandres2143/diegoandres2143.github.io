@@ -434,6 +434,12 @@
                 <input type="email" name="user_email" placeholder="Tu email" required data-en-placeholder="Your email" data-es-placeholder="Tu email">
                 <input type="text" name="subject" placeholder="Asunto" required data-en-placeholder="Subject" data-es-placeholder="Asunto">
                 <textarea name="message" rows="5" placeholder="Tu mensaje" required data-en-placeholder="Your message" data-es-placeholder="Tu mensaje"></textarea>
+                
+                <!-- reCAPTCHA v2 -->
+                <div class="recaptcha-container" data-aos="fade-up" data-aos-delay="400">
+                    <div class="g-recaptcha" data-sitekey="6LcREa8rAAAAAAbobuz8FGo9BVKJznZjycCgOfNX"></div>
+                </div>
+                
                 <button type="submit" data-en="Send Message" data-es="Enviar Mensaje">Enviar Mensaje</button>
             </form>
         </div>
@@ -530,6 +536,11 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- reCAPTCHA v2 con callback explícito -->
+    <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
+    <script src="js/recaptcha-config.js"></script>
+    <script src="js/recaptcha-debug.js"></script>
+    <script src="js/emailjs-config.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

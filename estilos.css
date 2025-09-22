@@ -975,6 +975,64 @@ body::before {
   box-shadow: 0 15px 35px rgba(0, 212, 255, 0.5);
 }
 
+/* reCAPTCHA Styling */
+.recaptcha-container {
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px; /* Asegurar espacio mínimo */
+}
+
+.g-recaptcha {
+  transform: scale(0.95);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(0, 212, 255, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+  display: inline-block; /* Asegurar que sea visible */
+}
+
+/* Asegurar que el iframe de reCAPTCHA sea visible */
+.g-recaptcha iframe {
+  border-radius: 8px;
+}
+
+/* Animación de parpadeo para el mensaje de cooldown */
+@keyframes cooldownBlink {
+  0% { 
+    opacity: 0.7; 
+    transform: scale(1);
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1.02);
+    text-shadow: 0 0 8px rgba(255, 107, 53, 0.5);
+  }
+}
+
+/* Responsive reCAPTCHA */
+@media (max-width: 768px) {
+  .g-recaptcha {
+    transform: scale(0.8);
+  }
+  
+  .recaptcha-container {
+    min-height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .g-recaptcha {
+    transform: scale(0.7);
+  }
+  
+  .recaptcha-container {
+    min-height: 60px;
+  }
+}
+
 /* Footer */
 .modern-footer {
   background: linear-gradient(135deg, rgba(10, 10, 46, 0.95), rgba(22, 33, 62, 0.9));
