@@ -335,6 +335,39 @@ function initMobileMenu() {
   });
 }
 
+// Sticky navbar functionality
+function initStickyNavbar() {
+  const navbar = document.querySelector('.NavBar');
+  if (!navbar) return;
+  
+  let lastScrollTop = 0;
+  
+  function handleScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Add scrolled class when scrolling down past 100px
+    if (scrollTop > 100) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+    
+    lastScrollTop = scrollTop;
+  }
+  
+  // Throttle scroll events for better performance
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
+    }
+    scrollTimeout = setTimeout(handleScroll, 10);
+  });
+  
+  // Initial check
+  handleScroll();
+}
+
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
   console.log('🚀 Initializing Diego\'s Stellar Portfolio...');
@@ -365,6 +398,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initContactForm();
   initScrollToTop();
   initSmoothScrolling();
+  initStickyNavbar();
   initMobileMenu(); // Add mobile menu initialization
   
   // Initialize stellar effects
