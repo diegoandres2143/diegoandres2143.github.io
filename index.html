@@ -1,205 +1,334 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>Portafolio | Diego Andrés Candamil</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="estilos.css" />
-  </head>
-  <body class="is-preload">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Diego Candamil</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <!-- Stars Background Container -->
+    <div id="stars-container"></div>
 
-    <!-- Nav -->
-    <nav id="nav">
-      <ul class="container">
-        <li><a href="#top">Inicio</a></li>
-        <li><a href="#work">Sobre mí</a></li>
-        <li><a href="#portfolio">Proyectos</a></li>
-        <li><a href="#education">Educación</a></li>
-        <li><a href="#experience">Experiencia</a></li>
-        <li><a href="#skills">Habilidades</a></li>
-        <li><a href="#contact">Contacto</a></li>
-      </ul>
+    <!-- Navigation -->
+    <nav class="NavBar container" data-aos="fade-down">
+        <div class="logo">
+            <h2>DC Portfolio</h2>
+        </div>
+        <ul>
+            <li><a href="#home" data-en="Home" data-es="Inicio">Inicio</a></li>
+            <li><a href="#projects" data-en="Projects" data-es="Proyectos">Proyectos</a></li>
+            <li><a href="#experience" data-en="Experience" data-es="Experiencia">Experiencia</a></li>
+            <li><a href="#contact" data-en="Contact" data-es="Contacto">Contacto</a></li>
+            <li><a href="CV-Diego-Candamil.pdf" download="CV-Diego-Candamil.pdf" class="cv-download-btn" data-en="Download CV" data-es="Descargar CV">
+                <i class="bi bi-download"></i> Descargar CV
+            </a></li>
+        </ul>
+        <div class="lang-toggle">
+            <button class="lang-btn active-lang" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        
+        <!-- Hamburger Menu -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
-    <!-- Home -->
-    <article id="top" class="wrapper style1">
-      <div class="container">
-        <div class="row">
-          <div class="col-4 col-5-large col-12-medium">
-            <span class="image fit"><img src="images/perfil.jpg" alt="Foto de Diego" /></span>
-          </div>
-          <div class="col-8 col-7-large col-12-medium">
-            <header>
-              <h1>Hola, soy <strong>Diego Andrés Candamil Puerta</strong>.</h1>
-            </header>
-            <p>Desarrollador Jr Full Stack con enfoque en Java, apasionado por la optimización de procesos y la resolución de problemas mediante tecnología.</p>
-            <a href="#work" class="button large scrolly">Conóceme más</a>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Work -->
-    <article id="work" class="wrapper style2">
-      <div class="container">
-        <header>
-          <h2>Perfil Profesional</h2>
-          <p>Ingeniero de Sistemas en formación con habilidades en desarrollo web, bases de datos y análisis de datos. Me enfoco en tecnologías como Java, JavaScript, SQL y herramientas de Business Intelligence como Power BI y Looker Studio. Apasionado por aplicar la tecnología para resolver problemas reales. Manejo Git/Github y metodologías ágiles para la gestión eficiente de proyectos.</p>
-        </header>
-        <div class="row aln-center">
-          <div class="col-4 col-6-medium col-12-small">
-            <section class="box style1">
-              <span class="icon featured fa-laptop-code"></span>
-              <h3>Full Stack Java Jr</h3>
-              <p>Experiencia con Java, Spring Boot, React, HTML, CSS, Node.js, APIs REST, SQL, Vite, y despliegue en Vercel.</p>
-            </section>
-          </div>
-          <div class="col-4 col-6-medium col-12-small">
-            <section class="box style1">
-              <span class="icon featured fa-database"></span>
-              <h3>Análisis de Datos</h3>
-              <p>Power BI, Looker Studio, Power Query, Excel avanzado, minería de datos, Python.</p>
-            </section>
-          </div>
-          <div class="col-4 col-6-medium col-12-small">
-            <section class="box style1">
-              <span class="icon featured fa-users-cog"></span>
-              <h3>Metodologías Ágiles</h3>
-              <p>Experiencia colaborando con equipos mediante scrum, git y buenas prácticas de desarrollo.</p>
-            </section>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Portfolio -->
-    <article id="portfolio" class="wrapper style3">
-      <div class="container">
-        <header>
-          <h2>Mis proyectos recientes</h2>
-          <p>Algunos ejemplos de lo que he estado desarrollando y practicando.</p>
-        </header>
-        <div class="row">
-          <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"><img src="images/proyecto1.jpg" alt="" /></a>
-              <h3><a href="#">Conversor de monedas</a></h3>
-              <p>App en JavaScript para convertir entre COP, USD y EUR.</p>
-            </article>
-          </div>
-          <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"><img src="images/proyecto2.jpg" alt="" /></a>
-              <h3><a href="#">Juego piedra, papel o tijera</a></h3>
-              <p>Juego con webcam y Teachable Machine.</p>
-            </article>
-          </div>
-          <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"><img src="images/proyecto3.jpg" alt="" /></a>
-              <h3><a href="#">Calculadora vectorial</a></h3>
-              <p>Operaciones con vectores en el espacio.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Educación -->
-    <article id="education" class="wrapper style2">
-      <div class="container">
-        <header>
-          <h2>Educación</h2>
-        </header>
-        <ul>
-          <li><strong>Universidad de Antioquia</strong> – Ingeniería de Sistemas (En curso)</li>
-          <li><strong>Instituto Ferrini</strong> – Bachiller Académico (2018)</li>
-          <li><strong>Talento Tech (MinTIC)</strong> – Bootcamp Programación Avanzada (abr 2025)</li>
-          <li><strong>Programa ONE</strong> – Full Stack Java Jr (dic 2024)</li>
-          <li><strong>Guayerd</strong> – Fundamentos de Data Analytics (nov 2024)</li>
-          <li><strong>SenaTIC</strong> – Análisis de datos con Python (en curso)</li>
-          <li><strong>Generation</strong> – Full Stack Java Jr (en curso)</li>
-        </ul>
-      </div>
-    </article>
-
-    <!-- Experiencia -->
-    <article id="experience" class="wrapper style3">
-      <div class="container">
-        <header>
-          <h2>Experiencia Profesional</h2>
-        </header>
-        <p><strong>Freelancer – Desarrollador Web</strong><br>
-        Medellín, Colombia | Abril 2025 - Mayo 2025</p>
-        <ul>
-          <li>Diseño y despliegue de página web y redes del Consultorio Médico del Dr. Garcés.</li>
-          <li>Stack: HTML, CSS, TypeScript, React + Vite, Node.js, Google Maps API, WhatsApp API, Vercel.</li>
-          <li><a href="https://consultoriomedicodoctorgarces.com/" target="_blank">Visitar proyecto</a></li>
-        </ul>
-      </div>
-    </article>
-
-    <!-- Habilidades -->
-    <article id="skills" class="wrapper style2">
-      <div class="container">
-        <header>
-          <h2>Habilidades Técnicas</h2>
-        </header>
-        <ul>
-          <li>Lenguajes: Java, JavaScript, Python, HTML, CSS, SQL</li>
-          <li>Herramientas: Git, GitHub, Power BI, Excel, Looker Studio, AWS, SEO</li>
-          <li>Frameworks & Libs: React, Node.js, Spring Boot</li>
-          <li>Metodologías: Scrum, Kanban, Ágil</li>
-        </ul>
-      </div>
-    </article>
-
-    <!-- Contact -->
-    <article id="contact" class="wrapper style4">
-      <div class="container medium">
-        <header>
-          <h2>Contáctame</h2>
-          <p>Si tienes un proyecto o idea en la que pueda ayudarte, ¡hablemos!</p>
-        </header>
-        
-        <div class="row">
-          <div class="col-6-medium col-12-small contact-info">
-            <ul>
-              <li><strong>Teléfono:</strong> +57 301 787 4304</li>
-              <li><strong>Email:</strong> diegoandres2143@gmail.com</li>
-              <li><strong>Ubicación:</strong> Medellín, Colombia</li>
-              <li><a href="https://linkedin.com/in/tu_usuario" class="icon brands fa-linkedin-in"><span>LinkedIn</span></a></li>
-              <li><a href="https://github.com/tu_usuario" class="icon brands fa-github"><span>GitHub</span></a></li>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu-content">
+            <!-- Close Button -->
+            <button class="mobile-close-btn" onclick="closeMobileMenu()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            
+            <div class="mobile-lang-toggle">
+                <button class="lang-btn active-lang" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <ul class="mobile-nav-menu">
+                <li><a href="#home" data-en="Home" data-es="Inicio" onclick="closeMobileMenu()">Inicio</a></li>
+                <li><a href="#projects" data-en="Projects" data-es="Proyectos" onclick="closeMobileMenu()">Proyectos</a></li>
+                <li><a href="#experience" data-en="Experience" data-es="Experiencia" onclick="closeMobileMenu()">Experiencia</a></li>
+                <li><a href="#contact" data-en="Contact" data-es="Contacto" onclick="closeMobileMenu()">Contacto</a></li>
+                <li><a href="CV-Diego-Candamil.pdf" download="CV-Diego-Candamil.pdf" class="cv-download-btn-mobile" data-en="Download CV" data-es="Descargar CV">
+                    <i class="bi bi-download"></i> <span data-en="Download CV" data-es="Descargar CV">Descargar CV</span>
+                </a></li>
             </ul>
-          </div>
-          
-          <div class="col-6-medium col-12-small contact-form-container">
-            <form class="contact-form">
-              <div class="form-group">
-                <input type="text" name="name" placeholder="Tu nombre *" required>
-              </div>
-              <div class="form-group">
-                <input type="email" name="email" placeholder="Tu email *" required>
-              </div>
-              <div class="form-group">
-                <textarea name="message" placeholder="Tu mensaje *" rows="4" required></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Enviar mensaje" class="button">
-              </div>
-            </form>
-          </div>
         </div>
-      </div>
-    </article>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-container" data-aos="fade-up">
+                <div class="hero-left">
+                    <h1 class="hero-main-name" data-aos="fade-up" data-aos-delay="200">
+                        Diego Andrés Candamil Puerta
+                    </h1>
+                    <h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="400" data-en="Full Stack Developer & Data Analyst" data-es="Desarrollador Full Stack & Analista de Datos">
+                        Desarrollador Full Stack & Analista de Datos
+                    </h2>
+                    <div class="hero-description" data-aos="fade-up" data-aos-delay="600">
+                        <p data-en="Systems Engineering Student passionate about creating innovative technological solutions. Specialized in web development, data analysis, and software engineering with experience in modern technologies." data-es="Estudiante de Ingeniería de Sistemas apasionado por crear soluciones tecnológicas innovadoras. Especializado en desarrollo web, análisis de datos e ingeniería de software con experiencia en tecnologías modernas.">
+                            Estudiante de Ingeniería de Sistemas apasionado por crear soluciones tecnológicas innovadoras. Especializado en desarrollo web, análisis de datos e ingeniería de software con experiencia en tecnologías modernas.
+                        </p>
+                    </div>
+
+                    <div class="skills">
+                        <span class="skill-pill">Java</span>
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">React</span>
+                        <span class="skill-pill">Spring Boot</span>
+                        <span class="skill-pill">SQL</span>
+                        <span class="skill-pill">Power BI</span>
+                        <span class="skill-pill">AWS</span>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/diegoandres2143" target="_blank">
+                            <i class="bi bi-linkedin"></i>
+                            <span data-en="LinkedIn" data-es="LinkedIn">LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/diegoandres2143" target="_blank">
+                            <i class="bi bi-github"></i>
+                            <span data-en="GitHub" data-es="GitHub">GitHub</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <img src="images/perfil.jpg" alt="Diego Andrés Candamil" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-en="Featured Projects" data-es="Proyectos Destacados">
+                Proyectos Destacados
+            </h2>
+            
+            <div class="carousel-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="carousel" id="projectCarousel">
+                    
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="images/fondo1.jpg" alt="Proyecto 1" loading="lazy">
+                                <div class="project-info">
+                                    <h3 data-en="E-commerce Platform" data-es="Plataforma E-commerce">Plataforma E-commerce</h3>
+                                    <p data-en="Complete online store with shopping cart, payment processing, and admin panel." data-es="Tienda en línea completa con carrito de compras, procesamiento de pagos y panel de administración.">
+                                        Tienda en línea completa con carrito de compras, procesamiento de pagos y panel de administración.
+                                    </p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">React</span>
+                                        <span class="tech-tag">Node.js</span>
+                                        <span class="tech-tag">MongoDB</span>
+                                        <span class="tech-tag">Stripe</span>
+                                    </div>
+                                    <button class="flip-btn" onclick="flipCard(this)" data-en="View Details" data-es="Ver Detalles">Ver Detalles</button>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <h3>Características Principales</h3>
+                                <ul style="color: #a0c4ff; line-height: 1.8;">
+                                    <li>Autenticación de usuarios segura</li>
+                                    <li>Carrito de compras dinámico</li>
+                                    <li>Integración con Stripe para pagos</li>
+                                    <li>Panel de administración completo</li>
+                                    <li>Sistema de inventario en tiempo real</li>
+                                    <li>Responsive design</li>
+                                </ul>
+                                <div class="project-links">
+                                    <a href="#" class="btn-view" target="_blank">Ver Proyecto</a>
+                                    <a href="#" class="btn-code" target="_blank">Ver Código</a>
+                                </div>
+                                <button class="flip-btn" onclick="flipCard(this)" data-en="Back" data-es="Volver">Volver</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="images/fondo2.jpg" alt="Proyecto 2" loading="lazy">
+                                <div class="project-info">
+                                    <h3 data-en="Data Analysis Dashboard" data-es="Dashboard de Análisis de Datos">Dashboard de Análisis de Datos</h3>
+                                    <p data-en="Interactive dashboard for data visualization and business intelligence with real-time metrics." data-es="Dashboard interactivo para visualización de datos e inteligencia de negocios con métricas en tiempo real.">
+                                        Dashboard interactivo para visualización de datos e inteligencia de negocios con métricas en tiempo real.
+                                    </p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Django</span>
+                                        <span class="tech-tag">PostgreSQL</span>
+                                        <span class="tech-tag">Chart.js</span>
+                                    </div>
+                                    <button class="flip-btn" onclick="flipCard(this)" data-en="View Details" data-es="Ver Detalles">Ver Detalles</button>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <h3>Características Principales</h3>
+                                <ul style="color: #a0c4ff; line-height: 1.8;">
+                                    <li>Visualizaciones interactivas</li>
+                                    <li>Filtros dinámicos y búsqueda</li>
+                                    <li>Exportación de reportes</li>
+                                    <li>Métricas en tiempo real</li>
+                                    <li>Panel administrativo</li>
+                                    <li>API REST para datos</li>
+                                </ul>
+                                <div class="project-links">
+                                    <a href="#" class="btn-view" target="_blank">Ver Proyecto</a>
+                                    <a href="#" class="btn-code" target="_blank">Ver Código</a>
+                                </div>
+                                <button class="flip-btn" onclick="flipCard(this)" data-en="Back" data-es="Volver">Volver</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="images/fondo1.jpg" alt="Proyecto 3" loading="lazy">
+                                <div class="project-info">
+                                    <h3 data-en="Task Management System" data-es="Sistema de Gestión de Tareas">Sistema de Gestión de Tareas</h3>
+                                    <p data-en="Collaborative project management tool with real-time updates and team collaboration features." data-es="Herramienta colaborativa de gestión de proyectos con actualizaciones en tiempo real y funciones de colaboración en equipo.">
+                                        Herramienta colaborativa de gestión de proyectos con actualizaciones en tiempo real y funciones de colaboración en equipo.
+                                    </p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Vue.js</span>
+                                        <span class="tech-tag">Express</span>
+                                        <span class="tech-tag">Socket.io</span>
+                                        <span class="tech-tag">MySQL</span>
+                                    </div>
+                                    <button class="flip-btn" onclick="flipCard(this)" data-en="View Details" data-es="Ver Detalles">Ver Detalles</button>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <h3>Características Principales</h3>
+                                <ul style="color: #a0c4ff; line-height: 1.8;">
+                                    <li>Colaboración en tiempo real</li>
+                                    <li>Gestión de equipos y permisos</li>
+                                    <li>Seguimiento de progreso</li>
+                                    <li>Notificaciones push</li>
+                                    <li>Integración con calendario</li>
+                                    <li>Reportes de productividad</li>
+                                </ul>
+                                <div class="project-links">
+                                    <a href="#" class="btn-view" target="_blank">Ver Proyecto</a>
+                                    <a href="#" class="btn-code" target="_blank">Ver Código</a>
+                                </div>
+                                <button class="flip-btn" onclick="flipCard(this)" data-en="Back" data-es="Volver">Volver</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="carousel-nav">
+                    <button class="nav-btn" id="prevBtn" onclick="moveCarousel(-1)">
+                        <i class="bi bi-chevron-left"></i> <span data-en="Previous" data-es="Anterior">Anterior</span>
+                    </button>
+                    <button class="nav-btn" id="nextBtn" onclick="moveCarousel(1)">
+                        <span data-en="Next" data-es="Siguiente">Siguiente</span> <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="timeline-section" style="padding: 4rem 2rem;">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-en="Professional Experience" data-es="Experiencia Profesional">
+                Experiencia Profesional
+            </h2>
+            
+            <div class="timeline" data-aos="fade-up" data-aos-delay="200">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 data-en="Systems Engineering Student" data-es="Estudiante de Ingeniería de Sistemas">Estudiante de Ingeniería de Sistemas</h3>
+                        <h4 data-en="Universidad de Antioquia | 2020 - Present" data-es="Universidad de Antioquia | 2020 - Actualidad">Universidad de Antioquia | 2020 - Actualidad</h4>
+                        <p data-en="Focused on software development, data structures, algorithms, and modern programming technologies. Active participation in academic projects and continuous learning in emerging technologies." data-es="Enfocado en desarrollo de software, estructuras de datos, algoritmos y tecnologías de programación modernas. Participación activa en proyectos académicos y aprendizaje continuo en tecnologías emergentes.">
+                            Enfocado en desarrollo de software, estructuras de datos, algoritmos y tecnologías de programación modernas. Participación activa en proyectos académicos y aprendizaje continuo en tecnologías emergentes.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 data-en="Full Stack Developer (Projects)" data-es="Desarrollador Full Stack (Proyectos)">Desarrollador Full Stack (Proyectos)</h3>
+                        <h4 data-en="Personal & Academic Projects | 2022 - Present" data-es="Proyectos Personales y Académicos | 2022 - Actualidad">Proyectos Personales y Académicos | 2022 - Actualidad</h4>
+                        <p data-en="Development of web applications using modern technologies like React, Spring Boot, Python, and cloud services. Experience in database design, API development, and responsive user interfaces." data-es="Desarrollo de aplicaciones web utilizando tecnologías modernas como React, Spring Boot, Python y servicios en la nube. Experiencia en diseño de bases de datos, desarrollo de APIs e interfaces de usuario responsivas.">
+                            Desarrollo de aplicaciones web utilizando tecnologías modernas como React, Spring Boot, Python y servicios en la nube. Experiencia en diseño de bases de datos, desarrollo de APIs e interfaces de usuario responsivas.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 data-en="Data Analysis Enthusiast" data-es="Entusiasta del Análisis de Datos">Entusiasta del Análisis de Datos</h3>
+                        <h4 data-en="Self-Learning & Practice | 2021 - Present" data-es="Autoaprendizaje y Práctica | 2021 - Actualidad">Autoaprendizaje y Práctica | 2021 - Actualidad</h4>
+                        <p data-en="Specialized in data analysis using Python, SQL, and Power BI. Experience creating interactive dashboards, data visualization, and extracting insights from complex datasets for decision making." data-es="Especializado en análisis de datos utilizando Python, SQL y Power BI. Experiencia creando dashboards interactivos, visualización de datos y extracción de insights de conjuntos de datos complejos para la toma de decisiones.">
+                            Especializado en análisis de datos utilizando Python, SQL y Power BI. Experiencia creando dashboards interactivos, visualización de datos y extracción de insights de conjuntos de datos complejos para la toma de decisiones.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section" style="padding: 4rem 2rem;">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-en="Get In Touch" data-es="Ponte en Contacto">
+                Ponte en Contacto
+            </h2>
+            
+            <form class="contact-form" data-aos="fade-up" data-aos-delay="200" id="contactForm">
+                <input type="text" name="user_name" placeholder="Tu nombre" required data-en-placeholder="Your name" data-es-placeholder="Tu nombre">
+                <input type="email" name="user_email" placeholder="Tu email" required data-en-placeholder="Your email" data-es-placeholder="Tu email">
+                <input type="text" name="subject" placeholder="Asunto" required data-en-placeholder="Subject" data-es-placeholder="Asunto">
+                <textarea name="message" rows="5" placeholder="Tu mensaje" required data-en-placeholder="Your message" data-es-placeholder="Tu mensaje"></textarea>
+                <button type="submit" data-en="Send Message" data-es="Enviar Mensaje">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Diego Andrés Candamil. <span data-en="All rights reserved." data-es="Todos los derechos reservados.">Todos los derechos reservados.</span></p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" style="display: none; position: fixed; bottom: 30px; right: 30px; background: linear-gradient(45deg, #00d4ff, #ff6b35); border: none; border-radius: 50%; width: 50px; height: 50px; color: white; cursor: pointer; z-index: 1000; transition: all 0.3s ease;">
+        <i class="bi bi-arrow-up"></i>
+    </button>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
 </html>
