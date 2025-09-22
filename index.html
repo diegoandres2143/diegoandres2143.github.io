@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio | Diego Candamil</title>
     
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon_io/favicon.ico?v=2" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon_io/favicon.ico?v=2" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png?v=2">
+    <link rel="manifest" href="images/favicon_io/site.webmanifest?v=2">
+    
+    <!-- Meta tags for better SEO -->
+    <meta name="description" content="Portafolio profesional de Diego Candamil - Desarrollador Full Stack especializado en React, TypeScript, Python y tecnologías web modernas.">
+    <meta name="keywords" content="Diego Candamil, desarrollador, full stack, React, TypeScript, Python, portafolio, web developer">
+    <meta name="author" content="Diego Candamil">
+    <meta name="theme-color" content="#1a365d">
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -95,10 +109,10 @@
                     </div>
 
                     <div class="skills">
-                        <span class="skill-pill">Desarrollo</span>
-                        <span class="skill-pill">Análisis de Datos</span>
-                        <span class="skill-pill">Ingeniería</span>
-                        <span class="skill-pill">Programación</span>
+                        <span class="skill-pill" data-en="Quick Learning" data-es="Aprendizaje Rápido">Aprendizaje Rápido</span>
+                        <span class="skill-pill" data-en="Problem Solving" data-es="Resolución de Problemas">Resolución de Problemas</span>
+                        <span class="skill-pill" data-en="Teamwork" data-es="Trabajo en Equipo">Trabajo en Equipo</span>
+                        <span class="skill-pill" data-en="Innovation" data-es="Innovación">Innovación</span>
                     </div>
 
                     <div class="social-links">
@@ -196,14 +210,14 @@
                 <div class="carousel" id="projectCarousel">
                     
                     <!-- Project 1 -->
-                    <div class="project-card">
+                    <div class="project-card" onclick="flipCard(this)">
                         <div class="card-inner">
                             <div class="card-front">
                                 <img src="images/fondo1.jpg" alt="Consultorio Médico" loading="lazy">
                                 <div class="project-info">
                                     <h3 data-en="Medical Clinic Website" data-es="Sitio Web Consultorio Médico">Sitio Web Consultorio Médico</h3>
-                                    <p data-en="Complete website for Dr. Garces medical clinic with appointment scheduling, services information, and Google Maps integration." data-es="Sitio web completo para el consultorio médico Dr. Garcés con programación de citas, información de servicios e integración con Google Maps.">
-                                        Sitio web completo para el consultorio médico Dr. Garcés con programación de citas, información de servicios e integración con Google Maps.
+                                    <p data-en="Complete website with appointment scheduling, services information, and Google Maps integration." data-es="Sitio web completo con programación de citas, información de servicios e integración con Google Maps.">
+                                        Sitio web completo con programación de citas, información de servicios e integración con Google Maps.
                                     </p>
                                     <div class="project-tech">
                                         <span class="tech-tag">React</span>
@@ -211,37 +225,35 @@
                                         <span class="tech-tag">TypeScript</span>
                                         <span class="tech-tag">EmailJS</span>
                                     </div>
-                                    <button class="flip-btn" onclick="flipCard(this)" data-en="View Details" data-es="Ver Detalles">Ver Detalles</button>
+                                    <button class="flip-btn" data-en="View Details" data-es="Ver Detalles">Ver Detalles</button>
                                 </div>
                             </div>
                             <div class="card-back">
                                 <h3 data-en="Key Features" data-es="Características Principales">Características Principales</h3>
-                                <ul style="color: #a0c4ff; line-height: 1.8;">
-                                    <li data-en="100% responsive design with AOS animations" data-es="Diseño 100% responsive con animaciones AOS">Diseño 100% responsive con animaciones AOS</li>
-                                    <li data-en="Interactive contact form with EmailJS" data-es="Formulario de contacto interactivo con EmailJS">Formulario de contacto interactivo con EmailJS</li>
-                                    <li data-en="Data persistence and RECAPTCHA validation" data-es="Persistencia de datos y validación RECAPTCHA">Persistencia de datos y validación RECAPTCHA</li>
-                                    <li data-en="Google Maps API integration" data-es="Integración con API de Google Maps">Integración con API de Google Maps</li>
-                                    <li data-en="WhatsApp API for appointment management" data-es="API de WhatsApp para gestión de citas">API de WhatsApp para gestión de citas</li>
-                                    <li data-en="Google Business profile development" data-es="Desarrollo de perfil de negocio en Google">Desarrollo de perfil de negocio en Google</li>
+                                <ul>
+                                    <li data-en="100% responsive design" data-es="Diseño 100% responsive">Diseño 100% responsive</li>
+                                    <li data-en="Interactive contact form" data-es="Formulario de contacto interactivo">Formulario de contacto interactivo</li>
+                                    <li data-en="RECAPTCHA validation" data-es="Validación RECAPTCHA">Validación RECAPTCHA</li>
+                                    <li data-en="Google Maps integration" data-es="Integración con Google Maps">Integración con Google Maps</li>
+                                    <li data-en="WhatsApp API integration" data-es="Integración con API de WhatsApp">Integración con API de WhatsApp</li>
                                 </ul>
                                 <div class="project-links">
-                                    <a href="https://consultoriomedicodoctorgarces.com" class="btn-view" target="_blank" data-en="View Project" data-es="Ver Proyecto">Ver Proyecto</a>
-                                    <a href="https://github.com/diegoandres2143" class="btn-code" target="_blank" data-en="View Code" data-es="Ver Código">Ver Código</a>
+                                    <a href="https://consultoriomedicodoctorgarces.com" class="btn-deploy" target="_blank" data-en="View Deploy" data-es="Ver Deploy">Ver Deploy</a>
                                 </div>
-                                <button class="flip-btn" onclick="flipCard(this)" data-en="Back" data-es="Volver">Volver</button>
+                                <button class="flip-btn" data-en="Back" data-es="Volver">Volver</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Project 2 -->
-                    <div class="project-card">
+                    <div class="project-card" onclick="flipCard(this)">
                         <div class="card-inner">
                             <div class="card-front">
                                 <img src="images/fondo2.jpg" alt="Proyecto 2" loading="lazy">
                                 <div class="project-info">
                                     <h3 data-en="Data Analysis Dashboard" data-es="Dashboard de Análisis de Datos">Dashboard de Análisis de Datos</h3>
-                                    <p data-en="Interactive dashboard for data visualization and business intelligence with real-time metrics." data-es="Dashboard interactivo para visualización de datos e inteligencia de negocios con métricas en tiempo real.">
-                                        Dashboard interactivo para visualización de datos e inteligencia de negocios con métricas en tiempo real.
+                                    <p data-en="Interactive dashboard for data visualization and business intelligence with real-time metrics and advanced analytics." data-es="Dashboard interactivo para visualización de datos e inteligencia de negocios con métricas en tiempo real y análisis avanzados.">
+                                        Dashboard interactivo para visualización de datos e inteligencia de negocios con métricas en tiempo real y análisis avanzados.
                                     </p>
                                     <div class="project-tech">
                                         <span class="tech-tag">Python</span>
@@ -249,37 +261,35 @@
                                         <span class="tech-tag">PostgreSQL</span>
                                         <span class="tech-tag">Chart.js</span>
                                     </div>
-                                    <button class="flip-btn" onclick="flipCard(this)" data-en="View Details" data-es="Ver Detalles">Ver Detalles</button>
+                                    <button class="flip-btn" data-en="View Details" data-es="Ver Detalles">Ver Detalles</button>
                                 </div>
                             </div>
                             <div class="card-back">
-                                <h3>Características Principales</h3>
-                                <ul style="color: #a0c4ff; line-height: 1.8;">
-                                    <li>Visualizaciones interactivas</li>
-                                    <li>Filtros dinámicos y búsqueda</li>
-                                    <li>Exportación de reportes</li>
-                                    <li>Métricas en tiempo real</li>
-                                    <li>Panel administrativo</li>
-                                    <li>API REST para datos</li>
+                                <h3 data-en="Key Features" data-es="Características Principales">Características Principales</h3>
+                                <ul>
+                                    <li data-en="Interactive visualizations" data-es="Visualizaciones interactivas">Visualizaciones interactivas</li>
+                                    <li data-en="Dynamic filters and search" data-es="Filtros dinámicos y búsqueda">Filtros dinámicos y búsqueda</li>
+                                    <li data-en="Report export functionality" data-es="Funcionalidad de exportación de reportes">Funcionalidad de exportación de reportes</li>
+                                    <li data-en="Real-time metrics" data-es="Métricas en tiempo real">Métricas en tiempo real</li>
+                                    <li data-en="REST API integration" data-es="Integración con API REST">Integración con API REST</li>
                                 </ul>
                                 <div class="project-links">
-                                    <a href="#" class="btn-view" target="_blank">Ver Proyecto</a>
-                                    <a href="#" class="btn-code" target="_blank">Ver Código</a>
+                                    <a href="#" class="btn-deploy" target="_blank" data-en="View Deploy" data-es="Ver Deploy">Ver Deploy</a>
                                 </div>
-                                <button class="flip-btn" onclick="flipCard(this)" data-en="Back" data-es="Volver">Volver</button>
+                                <button class="flip-btn" data-en="Back" data-es="Volver">Volver</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Project 3 -->
-                    <div class="project-card">
+                    <div class="project-card" onclick="flipCard(this)">
                         <div class="card-inner">
                             <div class="card-front">
                                 <img src="images/fondo1.jpg" alt="Proyecto 3" loading="lazy">
                                 <div class="project-info">
                                     <h3 data-en="Task Management System" data-es="Sistema de Gestión de Tareas">Sistema de Gestión de Tareas</h3>
-                                    <p data-en="Collaborative project management tool with real-time updates and team collaboration features." data-es="Herramienta colaborativa de gestión de proyectos con actualizaciones en tiempo real y funciones de colaboración en equipo.">
-                                        Herramienta colaborativa de gestión de proyectos con actualizaciones en tiempo real y funciones de colaboración en equipo.
+                                    <p data-en="Collaborative project management tool with real-time updates and advanced team collaboration features." data-es="Herramienta colaborativa de gestión de proyectos con actualizaciones en tiempo real y funciones avanzadas de colaboración.">
+                                        Herramienta colaborativa de gestión de proyectos con actualizaciones en tiempo real y funciones avanzadas de colaboración.
                                     </p>
                                     <div class="project-tech">
                                         <span class="tech-tag">Vue.js</span>
@@ -287,24 +297,22 @@
                                         <span class="tech-tag">Socket.io</span>
                                         <span class="tech-tag">MySQL</span>
                                     </div>
-                                    <button class="flip-btn" onclick="flipCard(this)" data-en="View Details" data-es="Ver Detalles">Ver Detalles</button>
+                                    <button class="flip-btn" data-en="View Details" data-es="Ver Detalles">Ver Detalles</button>
                                 </div>
                             </div>
                             <div class="card-back">
-                                <h3>Características Principales</h3>
-                                <ul style="color: #a0c4ff; line-height: 1.8;">
-                                    <li>Colaboración en tiempo real</li>
-                                    <li>Gestión de equipos y permisos</li>
-                                    <li>Seguimiento de progreso</li>
-                                    <li>Notificaciones push</li>
-                                    <li>Integración con calendario</li>
-                                    <li>Reportes de productividad</li>
+                                <h3 data-en="Key Features" data-es="Características Principales">Características Principales</h3>
+                                <ul>
+                                    <li data-en="Real-time collaboration" data-es="Colaboración en tiempo real">Colaboración en tiempo real</li>
+                                    <li data-en="Team and permissions management" data-es="Gestión de equipos y permisos">Gestión de equipos y permisos</li>
+                                    <li data-en="Progress tracking" data-es="Seguimiento de progreso">Seguimiento de progreso</li>
+                                    <li data-en="Push notifications" data-es="Notificaciones push">Notificaciones push</li>
+                                    <li data-en="Calendar integration" data-es="Integración con calendario">Integración con calendario</li>
                                 </ul>
                                 <div class="project-links">
-                                    <a href="#" class="btn-view" target="_blank">Ver Proyecto</a>
-                                    <a href="#" class="btn-code" target="_blank">Ver Código</a>
+                                    <a href="#" class="btn-deploy" target="_blank" data-en="View Deploy" data-es="Ver Deploy">Ver Deploy</a>
                                 </div>
-                                <button class="flip-btn" onclick="flipCard(this)" data-en="Back" data-es="Volver">Volver</button>
+                                <button class="flip-btn" data-en="Back" data-es="Volver">Volver</button>
                             </div>
                         </div>
                     </div>
@@ -348,7 +356,7 @@
                         <h3 data-en="April 2025 - May 2025" data-es="Abril 2025 - Mayo 2025">Abril 2025 - Mayo 2025</h3>
                         <h4 data-en="Freelancer - Web Developer" data-es="Freelancer - Desarrollador web">Freelancer - Desarrollador web</h4>
                         <p data-en="Designed and developed consultoriomedicodoctorgarces.com from scratch using React + Vite, TypeScript, Node.js, HTML, CSS and JavaScript. Incorporated AOS animations and created a 100% responsive design." data-es="Diseñé y desarrollé desde cero el sitio web consultoriomedicodoctorgarces.com utilizando React + Vite, TypeScript, Node.js, HTML, CSS y JavaScript. Incorporé animaciones con la librería AOS y realicé un diseño 100% responsive.">
-                            Diseñé y desarrollé desde cero el sitio web consultoriomedicodoctorgarces.com utilizando React + Vite, TypeScript, Node.js, HTML, CSS y JavaScript. Incorporé animaciones con la librería AOS y realicé un diseño 100% responsive.
+                            Diseñé y desarrollé desde cero el sitio web del consultorio médico del Dr. Garces utilizando React + Vite, TypeScript, Node.js, HTML, CSS y JavaScript. Incorporé animaciones con la librería AOS y realicé un diseño 100% responsive.
                         </p>
                     </div>
                 </div>
@@ -436,7 +444,7 @@
                 <textarea name="message" rows="5" placeholder="Tu mensaje" required data-en-placeholder="Your message" data-es-placeholder="Tu mensaje"></textarea>
                 
                 <!-- reCAPTCHA v2 -->
-                <div class="recaptcha-container" data-aos="fade-up" data-aos-delay="400">
+                <div class="recaptcha-container">
                     <div class="g-recaptcha" data-sitekey="6LcREa8rAAAAAAbobuz8FGo9BVKJznZjycCgOfNX"></div>
                 </div>
                 
@@ -529,7 +537,7 @@
     </footer>
 
     <!-- Scroll to Top Button -->
-    <button id="scrollToTop" style="display: none; position: fixed; bottom: 30px; right: 30px; background: linear-gradient(45deg, #00d4ff, #ff6b35); border: none; border-radius: 50%; width: 50px; height: 50px; color: white; cursor: pointer; z-index: 1000; transition: all 0.3s ease;">
+    <button id="scrollToTop">
         <i class="bi bi-arrow-up"></i>
     </button>
 

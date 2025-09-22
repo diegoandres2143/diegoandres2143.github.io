@@ -47,8 +47,8 @@ function initRecaptcha() {
         }
     } else {
         console.warn('⚠️ grecaptcha no está disponible aún');
-        // Reintentar en 500ms
-        setTimeout(initRecaptcha, 500);
+        // Reintentar inmediatamente
+        setTimeout(initRecaptcha, 100);
     }
 }
 
@@ -103,13 +103,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Si no está disponible, esperar a que se cargue
         console.log('⏳ Esperando a que se cargue reCAPTCHA...');
         
-        // Reintentar cada 500ms hasta que esté disponible
+        // Reintentar cada 100ms hasta que esté disponible
         const checkRecaptcha = setInterval(() => {
             if (typeof grecaptcha !== 'undefined') {
                 clearInterval(checkRecaptcha);
                 initRecaptcha();
             }
-        }, 500);
+        }, 100);
         
         // Timeout después de 10 segundos
         setTimeout(() => {

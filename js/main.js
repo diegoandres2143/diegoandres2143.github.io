@@ -82,8 +82,18 @@ function updateNavButtons() {
 }
 
 // Card flip functionality
-function flipCard(button) {
-  const card = button.closest('.project-card');
+function flipCard(element) {
+  let card;
+  
+  // Si se hace clic en la card completa
+  if (element.classList.contains('project-card')) {
+    card = element;
+  } 
+  // Si se hace clic en un botón dentro de la card
+  else {
+    card = element.closest('.project-card');
+  }
+  
   if (card) {
     card.classList.toggle('flipped');
   }
