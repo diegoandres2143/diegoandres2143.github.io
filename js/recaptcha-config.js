@@ -15,7 +15,7 @@ let recaptchaWidgetId = null;
 
 // Función para inicializar reCAPTCHA explícitamente
 function initRecaptcha() {
-    console.log('🔧 Inicializando reCAPTCHA...');
+    console.log('Inicializando reCAPTCHA...');
     
     if (typeof grecaptcha !== 'undefined') {
         const recaptchaElement = document.querySelector('.g-recaptcha');
@@ -28,25 +28,25 @@ function initRecaptcha() {
                     'theme': window.RECAPTCHA_CONFIG.theme,
                     'size': window.RECAPTCHA_CONFIG.size,
                     'callback': function(response) {
-                        console.log('✅ reCAPTCHA completado:', response.substring(0, 20) + '...');
+                        console.log('reCAPTCHA completado:', response.substring(0, 20) + '...');
                     },
                     'expired-callback': function() {
-                        console.log('⚠️ reCAPTCHA expirado');
+                        console.log('reCAPTCHA expirado');
                     },
                     'error-callback': function() {
-                        console.log('❌ Error en reCAPTCHA');
+                        console.log('Error en reCAPTCHA');
                     }
                 });
                 
                 recaptchaElement.setAttribute('data-rendered', 'true');
-                console.log('✅ reCAPTCHA renderizado correctamente con ID:', recaptchaWidgetId);
+                console.log('reCAPTCHA renderizado correctamente con ID:', recaptchaWidgetId);
                 
             } catch (error) {
-                console.error('❌ Error al renderizar reCAPTCHA:', error);
+                console.error('Error al renderizar reCAPTCHA:', error);
             }
         }
     } else {
-        console.warn('⚠️ grecaptcha no está disponible aún');
+        console.warn('grecaptcha no está disponible aún');
         // Reintentar inmediatamente
         setTimeout(initRecaptcha, 100);
     }
@@ -88,20 +88,20 @@ function validateRecaptcha() {
 
 // Callback global para cuando reCAPTCHA se carga
 window.onRecaptchaLoad = function() {
-    console.log('🚀 reCAPTCHA API cargada, inicializando...');
+    console.log('reCAPTCHA API cargada, inicializando...');
     initRecaptcha();
 };
 
 // Inicializar cuando se carga la página
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('📄 DOM cargado, verificando reCAPTCHA...');
+    console.log('DOM cargado, verificando reCAPTCHA...');
     
     // Intentar inicializar inmediatamente
     if (typeof grecaptcha !== 'undefined') {
         initRecaptcha();
     } else {
         // Si no está disponible, esperar a que se cargue
-        console.log('⏳ Esperando a que se cargue reCAPTCHA...');
+        console.log('Esperando a que se cargue reCAPTCHA...');
         
         // Reintentar cada 100ms hasta que esté disponible
         const checkRecaptcha = setInterval(() => {
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             clearInterval(checkRecaptcha);
             if (typeof grecaptcha === 'undefined') {
-                console.error('❌ reCAPTCHA no se pudo cargar después de 10 segundos');
+                console.error('reCAPTCHA no se pudo cargar después de 10 segundos');
             }
         }, 10000);
     }
