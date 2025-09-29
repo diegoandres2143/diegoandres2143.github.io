@@ -112,10 +112,10 @@ function initTypewriter() {
     const texts = currentLang === 'en' ? textsEN : textsES;
 
     typewriterInstance = new TypewriterEffect(typewriterElement, texts, {
-      typeSpeed: 80,
-      deleteSpeed: 40,
-      pauseAfterTyping: 2500,
-      pauseAfterDeleting: 300
+      typeSpeed: 140,        // Más lento para escribir (era 80)
+      deleteSpeed: 60,       // Más lento para borrar (era 40)
+      pauseAfterTyping: 4000, // Pausa más larga después de escribir (era 2500)
+      pauseAfterDeleting: 600 // Pausa más larga después de borrar (era 300)
     });
     console.log('🎬 Typewriter started with', texts.length, 'texts');
   } else {
@@ -150,10 +150,10 @@ function setLanguage(lang) {
   // Save language preference
   localStorage.setItem('selectedLanguage', lang);
 
-  // Reinitialize typewriter with new language
+  // Reinitialize typewriter with new language (small delay for smooth transition)
   setTimeout(() => {
     initTypewriter();
-  }, 100);
+  }, 300);
 }
 
 // Timeline scroll animation
@@ -751,19 +751,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initTimelineAnimations();
   initContactForm();
   initScrollToTop();
-  
-  // Initialize typewriter with delay to ensure element is ready
-  setTimeout(() => {
-    initTypewriter();
-  }, 100);
-  
-  // Fallback initialization after AOS animation
-  setTimeout(() => {
-    if (!typewriterInstance) {
-      console.log('🔄 Fallback typewriter initialization');
-      initTypewriter();
-    }
-  }, 1500);
+  initTypewriter();
   initEnhancedSmoothScrolling(); // Usar la versión mejorada
   initStickyNavbar();
   initMobileMenu();
