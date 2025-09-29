@@ -1096,16 +1096,17 @@ body::before {
   transform: translateY(50px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0.5s; /* Retraso para que aparezca después de la línea */
-  width: 48%;
+  width: 45%;
+  max-width: 400px;
 }
 
 .timeline-item.left {
-  left: 0;
+  left: 5%;
   text-align: right;
 }
 
 .timeline-item.right {
-  left: 52%;
+  left: 55%;
   text-align: left;
 }
 
@@ -1126,11 +1127,11 @@ body::before {
 }
 
 .timeline-item.left::before {
-  right: -50px;
+  right: -45px;
 }
 
 .timeline-item.right::before {
-  left: -50px;
+  left: -45px;
 }
 
 .timeline-item .content {
@@ -1142,6 +1143,10 @@ body::before {
   box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 .timeline-item .content:hover {
@@ -2074,71 +2079,257 @@ body::before {
   .timeline {
     max-width: 100%;
     padding: 1.5rem 0;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-left: 1rem;
   }
   
   .timeline::before {
-    left: 30px;
+    left: 25px;
     transform: none;
-    width: 2px;
+    width: 3px;
     animation: drawLineMobile 1.3s ease-out forwards;
     transform-origin: top;
     transform: scaleY(0);
   }
   
   .timeline-item {
-    width: 100%;
+    width: calc(100% - 70px);
+    max-width: none;
     left: 0 !important;
     text-align: left !important;
-    margin-left: 60px;
+    margin-left: 45px;
     margin-bottom: 2.5rem;
-    transition-delay: 0.6s; /* Retraso intermedio para tablets */
+    margin-right: 1rem;
+    transition-delay: 0.6s;
   }
   
   .timeline-item::before {
-    left: -45px;
+    left: -25px;
     width: 16px;
     height: 16px;
+    border: 3px solid #00d4ff;
+    background: rgba(10, 10, 46, 0.9);
   }
   
   .timeline-item .content {
     margin-left: 0;
+    margin-right: 0;
     padding: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 
 @media (max-width: 480px) {
+  /* Hero Section Mobile */
+  .hero-section {
+    padding: 1rem 0;
+  }
+  
+  .hero-container {
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  
   .hero-left h1 {
     font-size: 1.8rem;
   }
   
   .hero-main-name {
-    font-size: 2rem !important;
-    line-height: 1.2 !important;
+    font-size: 1.8rem !important;
+    line-height: 1.1 !important;
     margin-bottom: 0.8rem !important;
+    text-align: center;
+    padding: 0 0.5rem;
   }
   
   .hero-subtitle {
-    font-size: 1.2rem;
-    min-height: 1.8rem;
+    font-size: 1.1rem;
+    min-height: 1.6rem;
+    text-align: center;
+    margin-bottom: 1rem;
   }
   
   .typewriter-text {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     border-right-width: 2px;
     padding-right: 3px;
   }
   
-  .section-title {
-    font-size: 2rem;
+  .hero-description {
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 0 0.5rem;
+    margin-bottom: 1rem;
   }
   
-  .project-card {
-    flex: 0 0 250px;
-    height: 400px;
+  .hero-description p {
+    margin-bottom: 1rem;
   }
   
+  /* Skills Pills Mobile */
   .skills {
     justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .skill-pill {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+  
+  /* Social Links Mobile */
+  .social-links {
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .social-links a {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+  
+  /* Hero Image Mobile */
+  .hero-right {
+    margin-top: 1rem;
+  }
+  
+  .hero-right img {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Section Titles Mobile */
+  .section-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Profile Cards Mobile */
+  .profile-card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .profile-card p, .profile-card li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  /* Projects Mobile */
+  .project-card {
+    flex: 0 0 280px;
+    height: 420px;
+  }
+  
+  .project-info h3 {
+    font-size: 1.1rem;
+  }
+  
+  .project-info p {
+    font-size: 0.85rem;
+  }
+  
+  .tech-tag {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+  
+  /* Timeline Mobile */
+  .timeline {
+    margin: 0 auto;
+    padding: 1rem 0;
+    overflow: hidden;
+    padding-left: 0.5rem;
+  }
+  
+  .timeline::before {
+    left: 20px;
+    width: 2px;
+  }
+  
+  .timeline-item {
+    width: calc(100% - 50px);
+    margin-left: 35px;
+    margin-right: 1rem;
+  }
+  
+  .timeline-item::before {
+    left: -20px;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #00d4ff;
+    background: rgba(10, 10, 46, 0.9);
+  }
+  
+  .timeline-item .content {
+    padding: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    box-sizing: border-box;
+    word-break: break-word;
+  }
+  
+  .timeline-item .content h3 {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  
+  .timeline-item .content h4 {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+  
+  .timeline-item .content p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+  
+  /* Contact Form Mobile */
+  .contact-form {
+    padding: 1.5rem;
+    margin: 0 0.5rem;
+  }
+  
+  .form-title {
+    font-size: 1.3rem;
+  }
+  
+  .form-field input,
+  .form-field textarea {
+    font-size: 0.9rem;
+  }
+  
+  .form-field label {
+    font-size: 0.8rem;
+  }
+  
+  /* Footer Mobile */
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .footer-cta {
+    text-align: center;
+  }
+  
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
   }
   
   /* Botón scroll responsive */
@@ -2176,7 +2367,7 @@ body::before {
     width: 100%;
     left: 0 !important;
     text-align: left !important;
-    margin-left: 50px;
+    margin-left: 35px;
     margin-bottom: 2rem;
     transform: translateX(-30px);
     opacity: 0;
@@ -2205,6 +2396,150 @@ body::before {
 
 /* Media query para dispositivos muy pequeños */
 @media (max-width: 400px) {
+  /* Hero Mobile Muy Pequeño */
+  .hero-main-name {
+    font-size: 1.6rem !important;
+    padding: 0 0.25rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    min-height: 1.4rem;
+  }
+  
+  .typewriter-text {
+    font-size: 1rem;
+    border-right-width: 1px;
+  }
+  
+  .hero-description {
+    font-size: 0.85rem;
+    padding: 0 0.25rem;
+  }
+  
+  /* Container más pequeño */
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  /* NavBar móvil */
+  .NavBar {
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+  }
+  
+  .logo h2 {
+    font-size: 1.2rem;
+  }
+  
+  /* Skills más pequeñas */
+  .skill-pill {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+  
+  /* Cards más compactas */
+  .profile-card {
+    padding: 1rem;
+  }
+  
+  .profile-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .profile-card p, .profile-card li {
+    font-size: 0.85rem;
+  }
+  
+  /* Section titles más pequeños */
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  /* Projects más pequeños */
+  .project-card {
+    flex: 0 0 260px;
+    height: 380px;
+  }
+  
+  .project-info h3 {
+    font-size: 1rem;
+  }
+  
+  .project-info p {
+    font-size: 0.8rem;
+  }
+  
+  .tech-tag {
+    font-size: 0.65rem;
+    padding: 3px 6px;
+  }
+  
+  /* Contact form más compacto */
+  .contact-form {
+    padding: 1rem;
+    margin: 0 0.25rem;
+  }
+  
+  .form-title {
+    font-size: 1.2rem;
+  }
+  
+  /* Timeline más compacto */
+  .timeline {
+    padding: 0.5rem 0;
+    padding-left: 0.25rem;
+  }
+  
+  .timeline::before {
+    left: 15px;
+    width: 2px;
+  }
+  
+  .timeline-item {
+    width: calc(100% - 40px);
+    margin-left: 25px;
+    margin-right: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  
+  .timeline-item::before {
+    left: -15px;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #00d4ff;
+    background: rgba(10, 10, 46, 0.9);
+  }
+  
+  .timeline-item .content {
+    padding: 0.8rem;
+    width: 100%;
+  }
+  
+  .timeline-item .content h3 {
+    font-size: 0.9rem;
+  }
+  
+  .timeline-item .content h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .timeline-item .content p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+  
+  /* Footer compacto */
+  .footer-brand h3 {
+    font-size: 1.3rem;
+  }
+  
+  .footer-brand p {
+    font-size: 0.85rem;
+  }
+  
+  /* Botón scroll más pequeño */
   #scrollToTop {
     width: 42px;
     height: 42px;
@@ -2216,5 +2551,82 @@ body::before {
   /* Asegurar que no haya overflow horizontal */
   body {
     overflow-x: hidden;
+  }
+  
+  /* Prevenir overflow en elementos de timeline */
+  .timeline-section {
+    overflow-x: hidden;
+  }
+  
+  .timeline-item * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Media query específica para orientación vertical (portrait) */
+@media screen and (orientation: portrait) and (max-width: 768px) {
+  /* Optimizaciones específicas para móviles en vertical */
+  .hero-section {
+    min-height: auto;
+    padding: 2rem 0;
+  }
+  
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .hero-left {
+    order: 1;
+  }
+  
+  .hero-right {
+    order: 2;
+    margin-top: 0;
+  }
+  
+  .hero-right img {
+    max-width: 180px;
+    border-radius: 50%;
+  }
+  
+  /* Mejor distribución del espacio vertical */
+  .profile-section,
+  .projects-section,
+  .timeline-section,
+  .contact-section {
+    padding: 3rem 1rem;
+  }
+  
+  /* Cards más estrechas para aprovechar el ancho */
+  .card-grid {
+    gap: 1rem;
+  }
+  
+  .profile-card {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Timeline vertical optimizada */
+  .timeline {
+    padding: 1rem 0;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px;
+  }
+  
+  .timeline-item .content {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+  
+  /* Footer optimizado para vertical */
+  .modern-footer {
+    padding: 2rem 0 1rem 0;
   }
 }
