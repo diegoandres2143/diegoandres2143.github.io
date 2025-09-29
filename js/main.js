@@ -23,6 +23,7 @@ class TypewriterEffect {
 
   start() {
     this.isRunning = true;
+    console.log('⚡ Starting typewriter animation');
     this.type();
   }
 
@@ -73,8 +74,13 @@ let typewriterInstance = null;
 
 // Initialize typewriter effect
 function initTypewriter() {
+  console.log('🔤 Initializing typewriter...', new Date().toLocaleTimeString());
   const typewriterElement = document.getElementById('typewriter');
   if (typewriterElement) {
+    console.log('✅ Typewriter element found');
+    // Show immediate feedback
+    typewriterElement.textContent = 'Cargando...';
+    
     // Clear any existing instance
     if (typewriterInstance) {
       typewriterInstance.stop();
@@ -111,6 +117,9 @@ function initTypewriter() {
       pauseAfterTyping: 2500,
       pauseAfterDeleting: 300
     });
+    console.log('🎬 Typewriter started with', texts.length, 'texts');
+  } else {
+    console.error('❌ Typewriter element not found!');
   }
 }
 
@@ -742,7 +751,19 @@ document.addEventListener('DOMContentLoaded', function () {
   initTimelineAnimations();
   initContactForm();
   initScrollToTop();
-  initTypewriter();
+  
+  // Initialize typewriter with delay to ensure element is ready
+  setTimeout(() => {
+    initTypewriter();
+  }, 100);
+  
+  // Fallback initialization after AOS animation
+  setTimeout(() => {
+    if (!typewriterInstance) {
+      console.log('🔄 Fallback typewriter initialization');
+      initTypewriter();
+    }
+  }, 1500);
   initEnhancedSmoothScrolling(); // Usar la versión mejorada
   initStickyNavbar();
   initMobileMenu();
