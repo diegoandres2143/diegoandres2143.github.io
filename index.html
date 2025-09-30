@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio | Diego Candamil</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" href="images/favicon_io/favicon.ico?v=2" type="image/x-icon">
     <link rel="shortcut icon" href="images/favicon_io/favicon.ico?v=2" type="image/x-icon">
@@ -12,25 +13,29 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png?v=2">
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png?v=2">
     <link rel="manifest" href="images/favicon_io/site.webmanifest?v=2">
-    
+
     <!-- Meta tags for better SEO -->
-    <meta name="description" content="Portafolio profesional de Diego Candamil - Desarrollador Full Stack especializado en React, TypeScript, Python y tecnologías web modernas.">
-    <meta name="keywords" content="Diego Candamil, desarrollador, full stack, React, TypeScript, Python, portafolio, web developer">
+    <meta name="description"
+        content="Portafolio profesional de Diego Candamil - Desarrollador Full Stack especializado en React, TypeScript, Python y tecnologías web modernas.">
+    <meta name="keywords"
+        content="Diego Candamil, desarrollador, full stack, React, TypeScript, Python, portafolio, web developer">
     <meta name="author" content="Diego Candamil">
     <meta name="theme-color" content="#1a365d">
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    
+
     <!-- AOS (Animate On Scroll) -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
     <!-- Stars Background Container -->
     <div id="stars-container"></div>
@@ -46,15 +51,16 @@
             <li><a href="#projects" data-en="Projects" data-es="Proyectos">Proyectos</a></li>
             <li><a href="#experience" data-en="Experience" data-es="Experiencia">Experiencia</a></li>
             <li><a href="#contact" data-en="Contact" data-es="Contacto">Contacto</a></li>
-            <li><a href="CV-Diego-Candamil.pdf" download="CV-Diego-Candamil.pdf" class="cv-download-btn" data-en="Download CV" data-es="Descargar CV">
-                <i class="bi bi-download"></i> Descargar CV
-            </a></li>
+            <li><a href="CV-Diego-Candamil.pdf" download="CV-Diego-Candamil.pdf" class="cv-download-btn"
+                    data-en="Download CV" data-es="Descargar CV">
+                    <i class="bi bi-download"></i> Descargar CV
+                </a></li>
         </ul>
         <div class="lang-toggle">
             <button class="lang-btn active-lang" data-lang="es">ES</button>
             <button class="lang-btn" data-lang="en">EN</button>
         </div>
-        
+
         <!-- Hamburger Menu -->
         <div class="hamburger" id="hamburger">
             <span></span>
@@ -70,20 +76,26 @@
             <button class="mobile-close-btn" onclick="closeMobileMenu()">
                 <i class="bi bi-x-lg"></i>
             </button>
-            
+
             <div class="mobile-lang-toggle">
                 <button class="lang-btn active-lang" data-lang="es">ES</button>
                 <button class="lang-btn" data-lang="en">EN</button>
             </div>
             <ul class="mobile-nav-menu">
                 <li><a href="#home" data-en="Home" data-es="Inicio" onclick="closeMobileMenu()">Inicio</a></li>
-                <li><a href="#profile" data-en="My Profile" data-es="Mi Perfil" onclick="closeMobileMenu()">Mi Perfil</a></li>
-                <li><a href="#projects" data-en="Projects" data-es="Proyectos" onclick="closeMobileMenu()">Proyectos</a></li>
-                <li><a href="#experience" data-en="Experience" data-es="Experiencia" onclick="closeMobileMenu()">Experiencia</a></li>
-                <li><a href="#contact" data-en="Contact" data-es="Contacto" onclick="closeMobileMenu()">Contacto</a></li>
-                <li><a href="CV-Diego-Candamil.pdf" download="CV-Diego-Candamil.pdf" class="cv-download-btn-mobile" data-en="Download CV" data-es="Descargar CV">
-                    <i class="bi bi-download"></i> <span data-en="Download CV" data-es="Descargar CV">Descargar CV</span>
-                </a></li>
+                <li><a href="#profile" data-en="My Profile" data-es="Mi Perfil" onclick="closeMobileMenu()">Mi
+                        Perfil</a></li>
+                <li><a href="#projects" data-en="Projects" data-es="Proyectos" onclick="closeMobileMenu()">Proyectos</a>
+                </li>
+                <li><a href="#experience" data-en="Experience" data-es="Experiencia"
+                        onclick="closeMobileMenu()">Experiencia</a></li>
+                <li><a href="#contact" data-en="Contact" data-es="Contacto" onclick="closeMobileMenu()">Contacto</a>
+                </li>
+                <li><a href="CV-Diego-Candamil.pdf" download="CV-Diego-Candamil.pdf" class="cv-download-btn-mobile"
+                        data-en="Download CV" data-es="Descargar CV">
+                        <i class="bi bi-download"></i> <span data-en="Download CV" data-es="Descargar CV">Descargar
+                            CV</span>
+                    </a></li>
             </ul>
         </div>
     </div>
@@ -100,17 +112,25 @@
                         <span class="typewriter-text" id="typewriter"></span>
                     </h2>
                     <div class="hero-description" data-aos="fade-up" data-aos-delay="600">
-                        <p data-en="Systems Engineering Student, bilingual in English (B2) with skills in web development, databases and data analysis. Focused on Java, JavaScript, SQL and Business Intelligence tools (Power BI, Looker Studio, Power Query, Excel). Passionate about process optimization and problem solving through technology." data-es="Ingeniero de Sistemas en formación bilingüe en inglés (B2) con habilidades en desarrollo web, bases de datos y análisis de datos. Enfocado en Java, JavaScript, SQL y herramientas de Business Intelligence (Power BI, Looker Studio, Power Query, Excel). Apasionado por la optimización de procesos y la resolución de problemas mediante la tecnología.">
-                            Ingeniero de Sistemas en formación bilingüe en inglés (B2) con habilidades en desarrollo web, bases de datos y análisis de datos. Enfocado en Java, JavaScript, SQL y herramientas de Business Intelligence (Power BI, Looker Studio, Power Query, Excel). Apasionado por la optimización de procesos y la resolución de problemas mediante la tecnología.
+                        <p data-en="Systems Engineering Student, bilingual in English (B2) with skills in web development, databases and data analysis. Focused on Java, JavaScript, SQL and Business Intelligence tools (Power BI, Looker Studio, Power Query, Excel). Passionate about process optimization and problem solving through technology."
+                            data-es="Ingeniero de Sistemas en formación bilingüe en inglés (B2) con habilidades en desarrollo web, bases de datos y análisis de datos. Enfocado en Java, JavaScript, SQL y herramientas de Business Intelligence (Power BI, Looker Studio, Power Query, Excel). Apasionado por la optimización de procesos y la resolución de problemas mediante la tecnología.">
+                            Ingeniero de Sistemas en formación bilingüe en inglés (B2) con habilidades en desarrollo
+                            web, bases de datos y análisis de datos. Enfocado en Java, JavaScript, SQL y herramientas de
+                            Business Intelligence (Power BI, Looker Studio, Power Query, Excel). Apasionado por la
+                            optimización de procesos y la resolución de problemas mediante la tecnología.
                         </p>
-                        <p data-en="Web Development | Data Analysis | OOP | Java | JavaScript | Python | Git/GitHub | SEO | React | Power BI | Advanced Excel | SQL | Looker Studio | Agile Methodologies" data-es="Desarrollo Web | Análisis de Datos | POO | Java | JavaScript | Python | Git/GitHub | SEO | React | Power BI | Excel Avanzado | SQL | Looker Studio | Metodologías Ágiles">
-                            Desarrollo Web | Análisis de Datos | POO | Java | JavaScript | Python | Git/GitHub | SEO | React | Power BI | Excel Avanzado | SQL | Looker Studio | Metodologías Ágiles
+                        <p data-en="Web Development | Data Analysis | OOP | Java | JavaScript | Python | Git/GitHub | SEO | React | Power BI | Advanced Excel | SQL | Looker Studio | Agile Methodologies"
+                            data-es="Desarrollo Web | Análisis de Datos | POO | Java | JavaScript | Python | Git/GitHub | SEO | React | Power BI | Excel Avanzado | SQL | Looker Studio | Metodologías Ágiles">
+                            Desarrollo Web | Análisis de Datos | POO | Java | JavaScript | Python | Git/GitHub | SEO |
+                            React | Power BI | Excel Avanzado | SQL | Looker Studio | Metodologías Ágiles
                         </p>
                     </div>
 
                     <div class="skills">
-                        <span class="skill-pill" data-en="Quick Learning" data-es="Aprendizaje Rápido">Aprendizaje Rápido</span>
-                        <span class="skill-pill" data-en="Problem Solving" data-es="Resolución de Problemas">Resolución de Problemas</span>
+                        <span class="skill-pill" data-en="Quick Learning" data-es="Aprendizaje Rápido">Aprendizaje
+                            Rápido</span>
+                        <span class="skill-pill" data-en="Problem Solving" data-es="Resolución de Problemas">Resolución
+                            de Problemas</span>
                         <span class="skill-pill" data-en="Teamwork" data-es="Trabajo en Equipo">Trabajo en Equipo</span>
                         <span class="skill-pill" data-en="Innovation" data-es="Innovación">Innovación</span>
                     </div>
@@ -143,7 +163,7 @@
             <h2 class="section-title" data-aos="fade-up" data-en="My Profile" data-es="Mi Perfil">
                 Mi Perfil
             </h2>
-            
+
             <div class="card-grid" data-aos="fade-up" data-aos-delay="200">
                 <div class="profile-card" data-aos="fade-up">
                     <div class="card-header d-flex align-items-center mb-3">
@@ -152,9 +172,16 @@
                         </div>
                         <h3 class="mb-0" data-en="I'm Diego!" data-es="¡Soy Diego!">¡Soy Diego!</h3>
                     </div>
-                    <p data-en="I am a Systems Engineering student and Full Stack Java developer with a focus on backend development, experience in various programming languages and database management." data-es="Soy estudiante de Ingeniería de Sistemas y desarrollador Full Stack Java con enfoque en el backend, experiencia en diversos lenguajes de programación y gestión de bases de datos.">
-                        Soy estudiante de Ingeniería de Sistemas y desarrollador Full Stack Java con enfoque en el backend, experiencia en diversos lenguajes de programación y gestión de bases de datos.
+                    <p data-en="I am a Systems Engineering student and Full Stack developer with a focus on backend. My journey in programming began with JavaScript, exploring the DOM and being amazed at how I could bring a page to life. Later, I discovered Java, my favorite language, for its strong typing, its object-oriented approach, and the clarity it brings to every line of code. I like that it is strict because it fits my way of being: organized, methodical, and detail-oriented."
+                        data-es="Soy estudiante de Ingeniería de Sistemas y desarrollador Full Stack con afinidad por el backend. Mi camino en la programación empezó con JavaScript, explorando el DOM y sorprendiéndome con la forma en que podía dar vida a una página. Luego descubrí Java, mi lenguaje favorito, por su tipado fuerte, su enfoque en la programación orientada a objetos y la claridad que aporta a cada línea de código. Me gusta que sea estricto porque encaja con mi forma de ser: ordenada, metódica y detallista.">
+                        Soy estudiante de Ingeniería de Sistemas y desarrollador Full Stack con afinidad por el backend.
+                        Mi camino en la programación empezó con JavaScript, explorando el DOM y sorprendiéndome con la
+                        forma en que podía dar vida a una página. Luego descubrí Java, mi lenguaje favorito, por su
+                        tipado fuerte, su enfoque en la programación orientada a objetos y la claridad que aporta a cada
+                        línea de código. Me gusta que sea estricto porque encaja con mi forma de ser: ordenada, metódica
+                        y detallista.
                     </p>
+
                 </div>
 
                 <div class="profile-card" data-aos="fade-up" data-aos-delay="100">
@@ -164,8 +191,15 @@
                         </div>
                         <h3 class="mb-0" data-en="First Steps" data-es="Primeros pasos">Primeros pasos</h3>
                     </div>
-                    <p data-en="I started with Java and Python, and as I progressed, I discovered my passion for creating functional and elegant solutions through web development and data analysis." data-es="Comencé con Java y Python, y a medida que fui avanzando, descubrí mi pasión por crear soluciones funcionales y elegantes mediante el desarrollo web y análisis de datos.">
-                        Comencé con Java y Python, y a medida que fui avanzando, descubrí mi pasión por crear soluciones funcionales y elegantes mediante el desarrollo web y análisis de datos.
+                    <p data-en="My first big project was a website for a medical office. Although I didn’t have much experience at the time, I managed to complete it with dedication, constant learning, and many hours of trial and error. That project taught me the importance of good practices, version control with GitHub, and perseverance. Later, at Generation Colombia, I participated in the development of a bicycle shop with a backend deployed on AWS. There I discovered my passion for the world of backend and databases, a challenging but fascinating environment where I continue to grow."
+                        data-es="Mi primer gran proyecto fue la página web para un consultorio médico. Aunque no contaba con tanta experiencia, logré sacarlo adelante con dedicación, aprendizaje constante y muchas horas de ensayo y error. Ese proyecto me enseñó la importancia de las buenas prácticas, del control de versiones con GitHub y de la perseverancia. Más adelante, en Generation Colombia, participé en el desarrollo de una tienda de bicicletas con backend en AWS. Allí descubrí mi gusto por el mundo del backend y las bases de datos, un entorno retador pero fascinante en el que sigo creciendo.">
+                        Mi primer gran proyecto fue la página web para un consultorio médico. Aunque no contaba con
+                        tanta experiencia, logré sacarlo adelante con dedicación, aprendizaje constante y muchas horas
+                        de ensayo y error. Ese proyecto me enseñó la importancia de las buenas prácticas, del control de
+                        versiones con GitHub y de la perseverancia. Más adelante, en Generation Colombia, participé en
+                        el desarrollo de una tienda de bicicletas con backend en AWS. Allí descubrí mi gusto por el
+                        mundo del backend y las bases de datos, un entorno retador pero fascinante en el que sigo
+                        creciendo.
                     </p>
                 </div>
 
@@ -177,10 +211,32 @@
                         <h3 class="mb-0" data-en="What Defines Me" data-es="Lo que me define">Lo que me define</h3>
                     </div>
                     <ul>
-                        <li data-en="I stand out for my quick learning ability" data-es="Me destaco por mi capacidad de aprendizaje rápido">Me destaco por mi capacidad de aprendizaje rápido</li>
-                        <li data-en="Collaborative work and problem solving" data-es="Trabajo colaborativo y resolución de problemas">Trabajo colaborativo y resolución de problemas</li>
-                        <li data-en="I integrate and adapt easily to new environments" data-es="Me integro y adapto fácilmente a nuevos entornos">Me integro y adapto fácilmente a nuevos entornos</li>
-                        <li data-en="Passionate about process optimization through technology" data-es="Apasionado por la optimización de procesos mediante tecnología">Apasionado por la optimización de procesos mediante tecnología</li>
+                        <li data-en="Quick learning ability and perseverance in the face of challenges"
+                            data-es="Capacidad de aprendizaje rápido y perseverancia ante los retos">
+                            Capacidad de aprendizaje rápido y perseverancia ante los retos
+                        </li>
+
+                        <li data-en="I enjoy both autonomous and collaborative work, bringing responsibility and enthusiasm to the team"
+                            data-es="Disfruto tanto el trabajo autónomo como el colaborativo, aportando responsabilidad y entusiasmo en equipo">
+                            Disfruto tanto el trabajo autónomo como el colaborativo, aportando responsabilidad y
+                            entusiasmo en equipo
+                        </li>
+
+                        <li data-en="Sociable and adaptable to new environments"
+                            data-es="Soy sociable y me adapto con facilidad a nuevos entornos">
+                            Soy sociable y me adapto con facilidad a nuevos entornos
+                        </li>
+
+                        <li data-en="Passionate about learning new technologies and applying them to create functional and well-structured solutions"
+                            data-es="Me apasiona aprender tecnologías nuevas y aplicarlas para crear soluciones funcionales y bien estructuradas">
+                            Me apasiona aprender tecnologías nuevas y aplicarlas para crear soluciones funcionales y
+                            bien estructuradas
+                        </li>
+
+                        <li data-en="I value order, organization, and documentation in every project I develop"
+                            data-es="Valoro el orden, la organización y la documentación en cada proyecto que desarrollo">
+                            Valoro el orden, la organización y la documentación en cada proyecto que desarrollo
+                        </li>
                     </ul>
                 </div>
 
@@ -191,9 +247,17 @@
                         </div>
                         <h3 class="mb-0" data-en="My Vision" data-es="Mi visión">Mi visión</h3>
                     </div>
-                    <p data-en="I seek opportunities where I can continue growing as a Full Stack developer, add value through code and participate in projects that balance innovation and teamwork. I want to apply my knowledge in real environments and contribute to the development of innovative solutions." data-es="Busco oportunidades donde pueda seguir creciendo como desarrollador Full Stack, aportar valor a través del código y participar en proyectos que equilibren innovación y trabajo en equipo. Quiero aplicar mis conocimientos en entornos reales y contribuir al desarrollo de soluciones innovadoras.">
-                        Busco oportunidades donde pueda seguir creciendo como desarrollador Full Stack, aportar valor a través del código y participar en proyectos que equilibren innovación y trabajo en equipo. Quiero aplicar mis conocimientos en entornos reales y contribuir al desarrollo de soluciones innovadoras.
+                    <p data-en="I am currently looking for opportunities that allow me to take my first steps in the software industry, apply my knowledge in real environments, and gain experience while continuing my professional growth. I am not seeking a specific position: what motivates me the most is contributing with solutions that make clients happy, turning their ideas into technological realities. I enjoy the whole process: from design and layout, through the connection between frontend, backend, and databases, to deployment and the visualization of data in interactive dashboards."
+                        data-es="Actualmente busco oportunidades que me permitan dar mis primeros pasos en la industria del software, aplicar mis conocimientos en entornos reales y ganar experiencia mientras sigo formándome como profesional. No busco un cargo específico: lo que más me motiva es poder contribuir con soluciones que hagan felices a los clientes, transformando sus ideas en realidades tecnológicas. Disfruto de todo el proceso: desde el diseño y la maquetación, pasando por la conexión entre frontend, backend y bases de datos, hasta el despliegue y la visualización de datos en dashboards interactivos.">
+                        Actualmente busco oportunidades que me permitan dar mis primeros pasos en la industria del
+                        software, aplicar mis conocimientos en entornos reales y ganar experiencia mientras sigo
+                        formándome como profesional. No busco un cargo específico: lo que más me motiva es poder
+                        contribuir con soluciones que hagan felices a los clientes, transformando sus ideas en
+                        realidades tecnológicas. Disfruto de todo el proceso: desde el diseño y la maquetación, pasando
+                        por la conexión entre frontend, backend y bases de datos, hasta el despliegue y la visualización
+                        de datos en dashboards interactivos.
                     </p>
+
                 </div>
             </div>
         </div>
@@ -205,19 +269,22 @@
             <h2 class="section-title" data-aos="fade-up" data-en="Featured Projects" data-es="Proyectos Destacados">
                 Proyectos Destacados
             </h2>
-            
+
             <div class="carousel-container" data-aos="fade-up" data-aos-delay="200">
                 <div class="carousel" id="projectCarousel">
-                    
+
                     <!-- Project 1 -->
                     <div class="project-card" onclick="flipCard(this)">
                         <div class="card-inner">
                             <div class="card-front">
                                 <img src="images/fondo1.jpg" alt="Consultorio Médico" loading="lazy">
                                 <div class="project-info">
-                                    <h3 data-en="Medical Clinic Website" data-es="Sitio Web Consultorio Médico">Sitio Web Consultorio Médico</h3>
-                                    <p data-en="Complete website with appointment scheduling, services information, and Google Maps integration." data-es="Sitio web completo con programación de citas, información de servicios e integración con Google Maps.">
-                                        Sitio web completo con programación de citas, información de servicios e integración con Google Maps.
+                                    <h3 data-en="Medical Clinic Website" data-es="Sitio Web Consultorio Médico">Sitio
+                                        Web Consultorio Médico</h3>
+                                    <p data-en="Complete website with appointment scheduling, services information, and Google Maps integration."
+                                        data-es="Sitio web completo con programación de citas, información de servicios e integración con Google Maps.">
+                                        Sitio web completo con programación de citas, información de servicios e
+                                        integración con Google Maps.
                                     </p>
                                     <div class="project-tech">
                                         <span class="tech-tag">React</span>
@@ -225,20 +292,28 @@
                                         <span class="tech-tag">TypeScript</span>
                                         <span class="tech-tag">EmailJS</span>
                                     </div>
-                                    <button class="flip-btn" data-en="View Details" data-es="Ver Detalles">Ver Detalles</button>
+                                    <button class="flip-btn" data-en="View Details" data-es="Ver Detalles">Ver
+                                        Detalles</button>
                                 </div>
                             </div>
                             <div class="card-back">
-                                <h3 data-en="Key Features" data-es="Características Principales">Características Principales</h3>
+                                <h3 data-en="Key Features" data-es="Características Principales">Características
+                                    Principales</h3>
                                 <ul>
-                                    <li data-en="100% responsive design" data-es="Diseño 100% responsive">Diseño 100% responsive</li>
-                                    <li data-en="Interactive contact form" data-es="Formulario de contacto interactivo">Formulario de contacto interactivo</li>
-                                    <li data-en="RECAPTCHA validation" data-es="Validación RECAPTCHA">Validación RECAPTCHA</li>
-                                    <li data-en="Google Maps integration" data-es="Integración con Google Maps">Integración con Google Maps</li>
-                                    <li data-en="WhatsApp API integration" data-es="Integración con API de WhatsApp">Integración con API de WhatsApp</li>
+                                    <li data-en="100% responsive design" data-es="Diseño 100% responsive">Diseño 100%
+                                        responsive</li>
+                                    <li data-en="Interactive contact form" data-es="Formulario de contacto interactivo">
+                                        Formulario de contacto interactivo</li>
+                                    <li data-en="RECAPTCHA validation" data-es="Validación RECAPTCHA">Validación
+                                        RECAPTCHA</li>
+                                    <li data-en="Google Maps integration" data-es="Integración con Google Maps">
+                                        Integración con Google Maps</li>
+                                    <li data-en="WhatsApp API integration" data-es="Integración con API de WhatsApp">
+                                        Integración con API de WhatsApp</li>
                                 </ul>
                                 <div class="project-links">
-                                    <a href="https://consultoriomedicodoctorgarces.com" class="btn-deploy" target="_blank" data-en="View Deploy" data-es="Ver Deploy">Ver Deploy</a>
+                                    <a href="https://consultoriomedicodoctorgarces.com" class="btn-deploy"
+                                        target="_blank" data-en="View Deploy" data-es="Ver Deploy">Ver Deploy</a>
                                 </div>
                                 <button class="flip-btn" data-en="Back" data-es="Volver">Volver</button>
                             </div>
@@ -251,9 +326,12 @@
                             <div class="card-front">
                                 <img src="images/fondo2.jpg" alt="Proyecto 2" loading="lazy">
                                 <div class="project-info">
-                                    <h3 data-en="Data Analysis Dashboard" data-es="Dashboard de Análisis de Datos">Dashboard de Análisis de Datos</h3>
-                                    <p data-en="Interactive dashboard for data visualization and business intelligence with real-time metrics and advanced analytics." data-es="Dashboard interactivo para visualización de datos e inteligencia de negocios con métricas en tiempo real y análisis avanzados.">
-                                        Dashboard interactivo para visualización de datos e inteligencia de negocios con métricas en tiempo real y análisis avanzados.
+                                    <h3 data-en="Data Analysis Dashboard" data-es="Dashboard de Análisis de Datos">
+                                        Dashboard de Análisis de Datos</h3>
+                                    <p data-en="Interactive dashboard for data visualization and business intelligence with real-time metrics and advanced analytics."
+                                        data-es="Dashboard interactivo para visualización de datos e inteligencia de negocios con métricas en tiempo real y análisis avanzados.">
+                                        Dashboard interactivo para visualización de datos e inteligencia de negocios con
+                                        métricas en tiempo real y análisis avanzados.
                                     </p>
                                     <div class="project-tech">
                                         <span class="tech-tag">Python</span>
@@ -261,20 +339,29 @@
                                         <span class="tech-tag">PostgreSQL</span>
                                         <span class="tech-tag">Chart.js</span>
                                     </div>
-                                    <button class="flip-btn" data-en="View Details" data-es="Ver Detalles">Ver Detalles</button>
+                                    <button class="flip-btn" data-en="View Details" data-es="Ver Detalles">Ver
+                                        Detalles</button>
                                 </div>
                             </div>
                             <div class="card-back">
-                                <h3 data-en="Key Features" data-es="Características Principales">Características Principales</h3>
+                                <h3 data-en="Key Features" data-es="Características Principales">Características
+                                    Principales</h3>
                                 <ul>
-                                    <li data-en="Interactive visualizations" data-es="Visualizaciones interactivas">Visualizaciones interactivas</li>
-                                    <li data-en="Dynamic filters and search" data-es="Filtros dinámicos y búsqueda">Filtros dinámicos y búsqueda</li>
-                                    <li data-en="Report export functionality" data-es="Funcionalidad de exportación de reportes">Funcionalidad de exportación de reportes</li>
-                                    <li data-en="Real-time metrics" data-es="Métricas en tiempo real">Métricas en tiempo real</li>
-                                    <li data-en="REST API integration" data-es="Integración con API REST">Integración con API REST</li>
+                                    <li data-en="Interactive visualizations" data-es="Visualizaciones interactivas">
+                                        Visualizaciones interactivas</li>
+                                    <li data-en="Dynamic filters and search" data-es="Filtros dinámicos y búsqueda">
+                                        Filtros dinámicos y búsqueda</li>
+                                    <li data-en="Report export functionality"
+                                        data-es="Funcionalidad de exportación de reportes">Funcionalidad de exportación
+                                        de reportes</li>
+                                    <li data-en="Real-time metrics" data-es="Métricas en tiempo real">Métricas en tiempo
+                                        real</li>
+                                    <li data-en="REST API integration" data-es="Integración con API REST">Integración
+                                        con API REST</li>
                                 </ul>
                                 <div class="project-links">
-                                    <a href="#" class="btn-deploy" target="_blank" data-en="View Deploy" data-es="Ver Deploy">Ver Deploy</a>
+                                    <a href="#" class="btn-deploy" target="_blank" data-en="View Deploy"
+                                        data-es="Ver Deploy">Ver Deploy</a>
                                 </div>
                                 <button class="flip-btn" data-en="Back" data-es="Volver">Volver</button>
                             </div>
@@ -287,9 +374,12 @@
                             <div class="card-front">
                                 <img src="images/fondo1.jpg" alt="Proyecto 3" loading="lazy">
                                 <div class="project-info">
-                                    <h3 data-en="Task Management System" data-es="Sistema de Gestión de Tareas">Sistema de Gestión de Tareas</h3>
-                                    <p data-en="Collaborative project management tool with real-time updates and advanced team collaboration features." data-es="Herramienta colaborativa de gestión de proyectos con actualizaciones en tiempo real y funciones avanzadas de colaboración.">
-                                        Herramienta colaborativa de gestión de proyectos con actualizaciones en tiempo real y funciones avanzadas de colaboración.
+                                    <h3 data-en="Task Management System" data-es="Sistema de Gestión de Tareas">Sistema
+                                        de Gestión de Tareas</h3>
+                                    <p data-en="Collaborative project management tool with real-time updates and advanced team collaboration features."
+                                        data-es="Herramienta colaborativa de gestión de proyectos con actualizaciones en tiempo real y funciones avanzadas de colaboración.">
+                                        Herramienta colaborativa de gestión de proyectos con actualizaciones en tiempo
+                                        real y funciones avanzadas de colaboración.
                                     </p>
                                     <div class="project-tech">
                                         <span class="tech-tag">Vue.js</span>
@@ -297,20 +387,28 @@
                                         <span class="tech-tag">Socket.io</span>
                                         <span class="tech-tag">MySQL</span>
                                     </div>
-                                    <button class="flip-btn" data-en="View Details" data-es="Ver Detalles">Ver Detalles</button>
+                                    <button class="flip-btn" data-en="View Details" data-es="Ver Detalles">Ver
+                                        Detalles</button>
                                 </div>
                             </div>
                             <div class="card-back">
-                                <h3 data-en="Key Features" data-es="Características Principales">Características Principales</h3>
+                                <h3 data-en="Key Features" data-es="Características Principales">Características
+                                    Principales</h3>
                                 <ul>
-                                    <li data-en="Real-time collaboration" data-es="Colaboración en tiempo real">Colaboración en tiempo real</li>
-                                    <li data-en="Team and permissions management" data-es="Gestión de equipos y permisos">Gestión de equipos y permisos</li>
-                                    <li data-en="Progress tracking" data-es="Seguimiento de progreso">Seguimiento de progreso</li>
-                                    <li data-en="Push notifications" data-es="Notificaciones push">Notificaciones push</li>
-                                    <li data-en="Calendar integration" data-es="Integración con calendario">Integración con calendario</li>
+                                    <li data-en="Real-time collaboration" data-es="Colaboración en tiempo real">
+                                        Colaboración en tiempo real</li>
+                                    <li data-en="Team and permissions management"
+                                        data-es="Gestión de equipos y permisos">Gestión de equipos y permisos</li>
+                                    <li data-en="Progress tracking" data-es="Seguimiento de progreso">Seguimiento de
+                                        progreso</li>
+                                    <li data-en="Push notifications" data-es="Notificaciones push">Notificaciones push
+                                    </li>
+                                    <li data-en="Calendar integration" data-es="Integración con calendario">Integración
+                                        con calendario</li>
                                 </ul>
                                 <div class="project-links">
-                                    <a href="#" class="btn-deploy" target="_blank" data-en="View Deploy" data-es="Ver Deploy">Ver Deploy</a>
+                                    <a href="#" class="btn-deploy" target="_blank" data-en="View Deploy"
+                                        data-es="Ver Deploy">Ver Deploy</a>
                                 </div>
                                 <button class="flip-btn" data-en="Back" data-es="Volver">Volver</button>
                             </div>
@@ -318,7 +416,7 @@
                     </div>
 
                 </div>
-                
+
                 <div class="carousel-nav">
                     <button class="nav-btn" id="prevBtn" onclick="moveCarousel(-1)">
                         <i class="bi bi-chevron-left"></i> <span data-en="Previous" data-es="Anterior">Anterior</span>
@@ -337,15 +435,18 @@
             <h2 class="section-title" data-aos="fade-up" data-en="My Journey" data-es="Mi Trayectoria">
                 Mi Trayectoria
             </h2>
-            
+
             <div class="timeline" data-aos="fade-up" data-aos-delay="200">
                 <div class="timeline-item left education">
                     <div class="content">
                         <span class="badge-category"><i class="bi bi-mortarboard-fill"></i> Educación</span>
                         <h3 data-en="In Progress" data-es="En curso">En curso</h3>
-                        <h4 data-en="Universidad de Antioquia" data-es="Universidad de Antioquia">Universidad de Antioquia</h4>
-                        <p data-en="Systems Engineering - Focused on software development, data structures, algorithms, and modern programming technologies." data-es="Ingeniería de Sistemas - Enfocado en desarrollo de software, estructuras de datos, algoritmos y tecnologías de programación modernas.">
-                            Ingeniería de Sistemas - Enfocado en desarrollo de software, estructuras de datos, algoritmos y tecnologías de programación modernas.
+                        <h4 data-en="Universidad de Antioquia" data-es="Universidad de Antioquia">Universidad de
+                            Antioquia</h4>
+                        <p data-en="Systems Engineering - Focused on software development, data structures, algorithms, and modern programming technologies."
+                            data-es="Ingeniería de Sistemas - Enfocado en desarrollo de software, estructuras de datos, algoritmos y tecnologías de programación modernas.">
+                            Ingeniería de Sistemas - Enfocado en desarrollo de software, estructuras de datos,
+                            algoritmos y tecnologías de programación modernas.
                         </p>
                     </div>
                 </div>
@@ -354,9 +455,13 @@
                     <div class="content">
                         <span class="badge-category"><i class="bi bi-briefcase-fill"></i> Experiencia</span>
                         <h3 data-en="April 2025 - May 2025" data-es="Abril 2025 - Mayo 2025">Abril 2025 - Mayo 2025</h3>
-                        <h4 data-en="Freelancer - Web Developer" data-es="Freelancer - Desarrollador web">Freelancer - Desarrollador web</h4>
-                        <p data-en="Designed and developed the medical clinic website for Dr. Garces from scratch using React + Vite, TypeScript, Node.js, HTML, CSS and JavaScript. Incorporated AOS animations and created a 100% responsive design." data-es="Diseñé y desarrollé desde cero la página web del consultorio médico del Doctor Garces utilizando React + Vite, TypeScript, Node.js, HTML, CSS y JavaScript. Incorporé animaciones con la librería AOS y realicé un diseño 100% responsive.">
-                            Diseñé y desarrollé desde cero la página web del consultorio médico del Doctor Garces utilizando React + Vite, TypeScript, Node.js, HTML, CSS y JavaScript. Incorporé animaciones con la librería AOS y realicé un diseño 100% responsive.
+                        <h4 data-en="Freelancer - Web Developer" data-es="Freelancer - Desarrollador web">Freelancer -
+                            Desarrollador web</h4>
+                        <p data-en="Designed and developed the medical clinic website for Dr. Garces from scratch using React + Vite, TypeScript, Node.js, HTML, CSS and JavaScript. Incorporated AOS animations and created a 100% responsive design."
+                            data-es="Diseñé y desarrollé desde cero la página web del consultorio médico del Doctor Garces utilizando React + Vite, TypeScript, Node.js, HTML, CSS y JavaScript. Incorporé animaciones con la librería AOS y realicé un diseño 100% responsive.">
+                            Diseñé y desarrollé desde cero la página web del consultorio médico del Doctor Garces
+                            utilizando React + Vite, TypeScript, Node.js, HTML, CSS y JavaScript. Incorporé animaciones
+                            con la librería AOS y realicé un diseño 100% responsive.
                         </p>
                     </div>
                 </div>
@@ -366,8 +471,10 @@
                         <span class="badge-category"><i class="bi bi-mortarboard-fill"></i> Educación</span>
                         <h3 data-en="April 2025" data-es="Abril de 2025">Abril de 2025</h3>
                         <h4 data-en="MinTIC - Talento Tech" data-es="MinTIC - Talento Tech">MinTIC - Talento Tech</h4>
-                        <p data-en="Advanced Programming Bootcamp - Intensive training in modern web development technologies and best practices." data-es="Bootcamp de Programación Avanzada - Entrenamiento intensivo en tecnologías modernas de desarrollo web y mejores prácticas.">
-                            Bootcamp de Programación Avanzada - Entrenamiento intensivo en tecnologías modernas de desarrollo web y mejores prácticas.
+                        <p data-en="Advanced Programming Bootcamp - Intensive training in modern web development technologies and best practices."
+                            data-es="Bootcamp de Programación Avanzada - Entrenamiento intensivo en tecnologías modernas de desarrollo web y mejores prácticas.">
+                            Bootcamp de Programación Avanzada - Entrenamiento intensivo en tecnologías modernas de
+                            desarrollo web y mejores prácticas.
                         </p>
                     </div>
                 </div>
@@ -376,9 +483,12 @@
                     <div class="content">
                         <span class="badge-category"><i class="bi bi-mortarboard-fill"></i> Educación</span>
                         <h3 data-en="December 2024" data-es="Diciembre de 2024">Diciembre de 2024</h3>
-                        <h4 data-en="ONE Program - Oracle Next Education" data-es="Programa ONE - Oracle Next Education">Programa ONE - Oracle Next Education</h4>
-                        <p data-en="Junior Full Stack Java Developer Bootcamp - Comprehensive training in Java backend development, Spring Boot, and modern web technologies." data-es="Bootcamp Desarrollador Full Stack Java Jr - Formación integral en desarrollo backend con Java, Spring Boot y tecnologías web modernas.">
-                            Bootcamp Desarrollador Full Stack Java Jr - Formación integral en desarrollo backend con Java, Spring Boot y tecnologías web modernas.
+                        <h4 data-en="ONE Program - Oracle Next Education"
+                            data-es="Programa ONE - Oracle Next Education">Programa ONE - Oracle Next Education</h4>
+                        <p data-en="Junior Full Stack Java Developer Bootcamp - Comprehensive training in Java backend development, Spring Boot, and modern web technologies."
+                            data-es="Bootcamp Desarrollador Full Stack Java Jr - Formación integral en desarrollo backend con Java, Spring Boot y tecnologías web modernas.">
+                            Bootcamp Desarrollador Full Stack Java Jr - Formación integral en desarrollo backend con
+                            Java, Spring Boot y tecnologías web modernas.
                         </p>
                     </div>
                 </div>
@@ -388,8 +498,10 @@
                         <span class="badge-category"><i class="bi bi-mortarboard-fill"></i> Educación</span>
                         <h3 data-en="November 2024" data-es="Noviembre de 2024">Noviembre de 2024</h3>
                         <h4 data-en="Guayerd - IBM" data-es="Guayerd - IBM">Guayerd - IBM</h4>
-                        <p data-en="Data Analytics Fundamentals Bootcamp - Specialized training in data analysis, Python, SQL, and Business Intelligence tools like Power BI." data-es="Bootcamp - Fundamentos de Data Analytics - Formación especializada en análisis de datos, Python, SQL y herramientas de Business Intelligence como Power BI.">
-                            Bootcamp - Fundamentos de Data Analytics - Formación especializada en análisis de datos, Python, SQL y herramientas de Business Intelligence como Power BI.
+                        <p data-en="Data Analytics Fundamentals Bootcamp - Specialized training in data analysis, Python, SQL, and Business Intelligence tools like Power BI."
+                            data-es="Bootcamp - Fundamentos de Data Analytics - Formación especializada en análisis de datos, Python, SQL y herramientas de Business Intelligence como Power BI.">
+                            Bootcamp - Fundamentos de Data Analytics - Formación especializada en análisis de datos,
+                            Python, SQL y herramientas de Business Intelligence como Power BI.
                         </p>
                     </div>
                 </div>
@@ -399,8 +511,10 @@
                         <span class="badge-category"><i class="bi bi-mortarboard-fill"></i> Educación</span>
                         <h3 data-en="In Progress" data-es="En curso">En curso</h3>
                         <h4 data-en="Generation Colombia" data-es="Generation Colombia">Generation Colombia</h4>
-                        <p data-en="Junior Full Stack Java Developer Bootcamp - Intensive program focused on practical skills, teamwork, and real-world project development." data-es="Bootcamp Desarrollador Full Stack Java Jr - Programa intensivo enfocado en habilidades prácticas, trabajo en equipo y desarrollo de proyectos del mundo real.">
-                            Bootcamp Desarrollador Full Stack Java Jr - Programa intensivo enfocado en habilidades prácticas, trabajo en equipo y desarrollo de proyectos del mundo real.
+                        <p data-en="Junior Full Stack Java Developer Bootcamp - Intensive program focused on practical skills, teamwork, and real-world project development."
+                            data-es="Bootcamp Desarrollador Full Stack Java Jr - Programa intensivo enfocado en habilidades prácticas, trabajo en equipo y desarrollo de proyectos del mundo real.">
+                            Bootcamp Desarrollador Full Stack Java Jr - Programa intensivo enfocado en habilidades
+                            prácticas, trabajo en equipo y desarrollo de proyectos del mundo real.
                         </p>
                     </div>
                 </div>
@@ -409,9 +523,12 @@
                     <div class="content">
                         <span class="badge-category"><i class="bi bi-mortarboard-fill"></i> Educación</span>
                         <h3 data-en="In Progress" data-es="En curso">En curso</h3>
-                        <h4 data-en="SenaTIC - Data Analysis with Python" data-es="SenaTIC - Análisis de datos con Python">SenaTIC - Análisis de datos con Python</h4>
-                        <p data-en="Specialized course in data analysis using Python, covering libraries like Pandas, NumPy, Matplotlib and advanced analysis techniques." data-es="Curso especializado en análisis de datos utilizando Python, cubriendo librerías como Pandas, NumPy, Matplotlib y técnicas avanzadas de análisis.">
-                            Curso especializado en análisis de datos utilizando Python, cubriendo librerías como Pandas, NumPy, Matplotlib y técnicas avanzadas de análisis.
+                        <h4 data-en="SenaTIC - Data Analysis with Python"
+                            data-es="SenaTIC - Análisis de datos con Python">SenaTIC - Análisis de datos con Python</h4>
+                        <p data-en="Specialized course in data analysis using Python, covering libraries like Pandas, NumPy, Matplotlib and advanced analysis techniques."
+                            data-es="Curso especializado en análisis de datos utilizando Python, cubriendo librerías como Pandas, NumPy, Matplotlib y técnicas avanzadas de análisis.">
+                            Curso especializado en análisis de datos utilizando Python, cubriendo librerías como Pandas,
+                            NumPy, Matplotlib y técnicas avanzadas de análisis.
                         </p>
                     </div>
                 </div>
@@ -420,9 +537,13 @@
                     <div class="content">
                         <span class="badge-category"><i class="bi bi-mortarboard-fill"></i> Educación</span>
                         <h3 data-en="In Progress" data-es="En curso">En curso</h3>
-                        <h4 data-en="Guayerd - IBM, Argentina - AI Fundamentals Bootcamp" data-es="Guayerd - IBM, Argentina - Bootcamp Fundamentos de IA">Guayerd - IBM, Argentina - Bootcamp Fundamentos de IA</h4>
-                        <p data-en="Comprehensive bootcamp covering artificial intelligence fundamentals, machine learning concepts, and practical applications in collaboration with IBM." data-es="Bootcamp integral sobre fundamentos de inteligencia artificial, conceptos de machine learning y aplicaciones prácticas en colaboración con IBM.">
-                            Bootcamp integral sobre fundamentos de inteligencia artificial, conceptos de machine learning y aplicaciones prácticas en colaboración con IBM.
+                        <h4 data-en="Guayerd - IBM, Argentina - AI Fundamentals Bootcamp"
+                            data-es="Guayerd - IBM, Argentina - Bootcamp Fundamentos de IA">Guayerd - IBM, Argentina -
+                            Bootcamp Fundamentos de IA</h4>
+                        <p data-en="Comprehensive bootcamp covering artificial intelligence fundamentals, machine learning concepts, and practical applications in collaboration with IBM."
+                            data-es="Bootcamp integral sobre fundamentos de inteligencia artificial, conceptos de machine learning y aplicaciones prácticas en colaboración con IBM.">
+                            Bootcamp integral sobre fundamentos de inteligencia artificial, conceptos de machine
+                            learning y aplicaciones prácticas en colaboración con IBM.
                         </p>
                     </div>
                 </div>
@@ -436,55 +557,65 @@
             <h2 class="section-title" data-aos="fade-up" data-en="Get In Touch" data-es="Ponte en Contacto">
                 Ponte en Contacto
             </h2>
-            
+
             <form class="contact-form" data-aos="fade-up" data-aos-delay="200" id="contactForm">
-                <h3 class="form-title" data-en="Contact Form" data-es="Formulario de Contacto">Formulario de Contacto</h3>
-                
+                <h3 class="form-title" data-en="Contact Form" data-es="Formulario de Contacto">Formulario de Contacto
+                </h3>
+
                 <div class="form-field">
-                    <input type="text" name="user_name" placeholder="Introduce tu nombre aquí" required maxlength="50" data-en-placeholder="Enter your name here" data-es-placeholder="Introduce tu nombre aquí" id="nameInput">
+                    <input type="text" name="user_name" placeholder="Introduce tu nombre aquí" required maxlength="50"
+                        data-en-placeholder="Enter your name here" data-es-placeholder="Introduce tu nombre aquí"
+                        id="nameInput">
                     <label for="nameInput" data-en="Your Name" data-es="Tu Nombre">Tu Nombre</label>
                     <div class="char-counter">
                         <span class="current-chars">0</span>/<span class="max-chars">50</span>
                     </div>
                     <div class="field-error" id="nameError"></div>
                 </div>
-                
+
                 <div class="form-field">
-                    <input type="email" name="user_email" placeholder="Introduce tu email aquí" required maxlength="100" data-en-placeholder="Enter your email here" data-es-placeholder="Introduce tu email aquí" id="emailInput">
+                    <input type="email" name="user_email" placeholder="Introduce tu email aquí" required maxlength="100"
+                        data-en-placeholder="Enter your email here" data-es-placeholder="Introduce tu email aquí"
+                        id="emailInput">
                     <label for="emailInput" data-en="Your Email" data-es="Tu Email">Tu Email</label>
                     <div class="char-counter">
                         <span class="current-chars">0</span>/<span class="max-chars">100</span>
                     </div>
                     <div class="field-error" id="emailError"></div>
                 </div>
-                
+
                 <div class="form-field">
-                    <input type="text" name="subject" placeholder="Introduce el asunto aquí" required maxlength="80" data-en-placeholder="Enter the subject here" data-es-placeholder="Introduce el asunto aquí" id="subjectInput">
+                    <input type="text" name="subject" placeholder="Introduce el asunto aquí" required maxlength="80"
+                        data-en-placeholder="Enter the subject here" data-es-placeholder="Introduce el asunto aquí"
+                        id="subjectInput">
                     <label for="subjectInput" data-en="Subject" data-es="Asunto">Asunto</label>
                     <div class="char-counter">
                         <span class="current-chars">0</span>/<span class="max-chars">80</span>
                     </div>
                     <div class="field-error" id="subjectError"></div>
                 </div>
-                
+
                 <div class="form-field">
-                    <textarea name="message" rows="5" placeholder="Introduce tu mensaje aquí" required maxlength="500" data-en-placeholder="Enter your message here" data-es-placeholder="Introduce tu mensaje aquí" id="messageInput"></textarea>
+                    <textarea name="message" rows="5" placeholder="Introduce tu mensaje aquí" required maxlength="500"
+                        data-en-placeholder="Enter your message here" data-es-placeholder="Introduce tu mensaje aquí"
+                        id="messageInput"></textarea>
                     <label for="messageInput" data-en="Your Message" data-es="Tu Mensaje">Tu Mensaje</label>
                     <div class="char-counter">
                         <span class="current-chars">0</span>/<span class="max-chars">500</span>
                     </div>
                     <div class="field-error" id="messageError"></div>
                 </div>
-                
+
                 <!-- reCAPTCHA v2 -->
                 <div class="recaptcha-container">
-                    <div class="g-recaptcha" data-sitekey="6LcREa8rAAAAAAbobuz8FGo9BVKJznZjycCgOfNX" data-callback="recaptchaCallback"></div>
+                    <div class="g-recaptcha" data-sitekey="6LcREa8rAAAAAAbobuz8FGo9BVKJznZjycCgOfNX"
+                        data-callback="recaptchaCallback"></div>
                     <div class="field-error" id="recaptchaError"></div>
                 </div>
-                
+
                 <!-- Form Status Messages -->
                 <div class="form-status" id="formStatus"></div>
-                
+
                 <button type="submit" data-en="Send Message" data-es="Enviar Mensaje" id="submitBtn">
                     <span class="btn-text">Enviar Mensaje</span>
                     <span class="btn-loader" style="display: none;">
@@ -503,7 +634,8 @@
                 <div class="footer-main">
                     <div class="footer-brand">
                         <h3>Diego Andrés Candamil</h3>
-                        <p data-en="Full Stack Developer & Data Analyst" data-es="Desarrollador Full Stack & Analista de Datos">
+                        <p data-en="Full Stack Developer & Data Analyst"
+                            data-es="Desarrollador Full Stack & Analista de Datos">
                             Desarrollador Full Stack & Analista de Datos
                         </p>
                         <div class="footer-location">
@@ -511,10 +643,11 @@
                             <span data-en="Medellín, Colombia" data-es="Medellín, Colombia">Medellín, Colombia</span>
                         </div>
                     </div>
-                    
+
                     <div class="footer-cta">
                         <h4 data-en="Let's Work Together!" data-es="¡Trabajemos Juntos!">¡Trabajemos Juntos!</h4>
-                        <p data-en="Ready to bring your ideas to life? Let's create something amazing together." data-es="¿Listo para dar vida a tus ideas? Creemos algo increíble juntos.">
+                        <p data-en="Ready to bring your ideas to life? Let's create something amazing together."
+                            data-es="¿Listo para dar vida a tus ideas? Creemos algo increíble juntos.">
                             ¿Listo para dar vida a tus ideas? Creemos algo increíble juntos.
                         </p>
                         <a href="#contact" class="footer-btn" data-en="Get In Touch" data-es="Contactar">
@@ -547,11 +680,13 @@
                     <div class="footer-section">
                         <h5 data-en="Resources" data-es="Recursos">Recursos</h5>
                         <div class="footer-resources">
-                            <a href="CV-Diego-Candamil.pdf" download="CV-Diego-Candamil.pdf" class="resource-link" data-en="Download CV" data-es="Descargar CV">
+                            <a href="CV-Diego-Candamil.pdf" download="CV-Diego-Candamil.pdf" class="resource-link"
+                                data-en="Download CV" data-es="Descargar CV">
                                 <i class="bi bi-download"></i>
                                 <span>CV</span>
                             </a>
-                            <a href="https://consultoriomedicodoctorgarces.com" target="_blank" class="resource-link" data-en="Featured Project" data-es="Proyecto Destacado">
+                            <a href="https://consultoriomedicodoctorgarces.com" target="_blank" class="resource-link"
+                                data-en="Featured Project" data-es="Proyecto Destacado">
                                 <i class="bi bi-link-45deg"></i>
                                 <span>Proyecto</span>
                             </a>
@@ -564,13 +699,15 @@
                     <div class="footer-status">
                         <div class="status-indicator">
                             <span class="status-dot"></span>
-                            <span data-en="Available for work" data-es="Disponible para trabajar">Disponible para trabajar</span>
+                            <span data-en="Available for work" data-es="Disponible para trabajar">Disponible para
+                                trabajar</span>
                         </div>
                     </div>
-                    
+
                     <div class="footer-copyright">
-                        <p>&copy; 2025 Diego Andrés Candamil Puerta. 
-                        <span data-en="All rights reserved." data-es="Todos los derechos reservados.">Todos los derechos reservados.</span>
+                        <p>&copy; 2025 Diego Andrés Candamil Puerta.
+                            <span data-en="All rights reserved." data-es="Todos los derechos reservados.">Todos los
+                                derechos reservados.</span>
                         </p>
                     </div>
                 </div>
@@ -594,4 +731,5 @@
     <script src="js/form-validation.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

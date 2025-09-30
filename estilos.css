@@ -326,6 +326,17 @@ body::before {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+.hamburger.active:hover {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: #00d4ff;
+  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+}
+
+.hamburger.active:hover span {
+  background: #00d4ff;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
 /* Mobile Menu Overlay */
 .mobile-menu-overlay {
   display: none;
@@ -1650,29 +1661,12 @@ body::before {
   display: flex;
 }
 
-#scrollToTop::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, #00d4ff, #831afc);
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: -1;
-}
-
-#scrollToTop:hover::before {
-  opacity: 1;
-}
-
 #scrollToTop:hover {
-  border-color: transparent;
-  color: white;
+  background: rgba(0, 212, 255, 0.2);
+  border-color: #00d4ff;
+  color: #00d4ff;
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
 }
 
 #scrollToTop i {
