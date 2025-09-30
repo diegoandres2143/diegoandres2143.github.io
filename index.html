@@ -34,6 +34,27 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="estilos.css">
+    
+    <!-- Timeline Initialization Script - Must run before DOM renders -->
+    <script>
+        // Initialize timeline class immediately based on viewport
+        (function() {
+            const checkInitialViewport = () => {
+                const timeline = document.querySelector('.timeline');
+                if (timeline) {
+                    const isMobile = window.innerWidth <= 1037;
+                    timeline.classList.add(isMobile ? 'timeline-mobile' : 'timeline-desktop');
+                    console.log('🚀 Timeline initialized as:', isMobile ? 'mobile' : 'desktop');
+                }
+            };
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', checkInitialViewport);
+            } else {
+                checkInitialViewport();
+            }
+        })();
+    </script>
 </head>
 
 <body>

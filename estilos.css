@@ -1054,12 +1054,34 @@ body::before {
   transform: none;
 }
 
-/* Timeline */
+/* Timeline - Base styles (fallback) */
 .timeline {
   position: relative;
   padding: 2rem 0;
   max-width: 1000px;
   margin: 0 auto;
+}
+
+/* Default desktop styles (fallback if JS doesn't load) */
+.timeline:not(.timeline-mobile) .timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.5s;
+  width: 45%;
+  max-width: 400px;
+}
+
+.timeline:not(.timeline-mobile) .timeline-item.left {
+  left: 5%;
+  text-align: right;
+}
+
+.timeline:not(.timeline-mobile) .timeline-item.right {
+  left: 50%;
+  text-align: left;
 }
 
 /* Timeline responsive para pantallas grandes */
@@ -1197,6 +1219,182 @@ body::before {
   line-height: 1.6;
   margin: 0;
 }
+
+/* ====================================
+   TIMELINE MODES - MODULAR APPROACH
+   ==================================== */
+
+/* Desktop Timeline Mode - Original Alternating Design */
+.timeline.timeline-desktop .timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.5s;
+  width: 45%;
+  max-width: 400px;
+}
+
+.timeline.timeline-desktop .timeline-item.left {
+  left: 5%;
+  text-align: right;
+}
+
+.timeline.timeline-desktop .timeline-item.right {
+  left: 55%;
+  text-align: left;
+}
+
+.timeline.timeline-desktop .timeline-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline.timeline-desktop .timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #00d4ff, #831afc);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.timeline.timeline-desktop .timeline-item.left::before {
+  right: -45px;
+}
+
+.timeline.timeline-desktop .timeline-item.right::before {
+  left: -45px;
+}
+
+/* Mobile Timeline Mode - Clean Vertical Design */
+.timeline.timeline-mobile {
+  position: relative;
+  padding: 2rem 0;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  overflow: hidden;
+}
+
+.timeline.timeline-mobile::before {
+  content: '';
+  position: absolute;
+  left: 25px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #00d4ff, #831afc);
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: drawLineMobile 1.3s ease-out forwards;
+}
+
+.timeline.timeline-mobile .timeline-mobile-item {
+  position: relative;
+  width: calc(100% - 70px);
+  max-width: none;
+  left: 0;
+  text-align: left;
+  margin-left: 45px;
+  margin-bottom: 2.5rem;
+  margin-right: 1rem;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.6s;
+}
+
+.timeline.timeline-mobile .timeline-mobile-item.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.timeline.timeline-mobile .timeline-mobile-item::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -25px;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #00d4ff, #831afc);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  border: 3px solid #00d4ff;
+  background: rgba(10, 10, 46, 0.9);
+}
+
+.timeline.timeline-mobile .timeline-mobile-item .content {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Small Mobile Adjustments */
+@media (max-width: 480px) {
+  .timeline.timeline-mobile {
+    padding-left: 0.5rem;
+  }
+  
+  .timeline.timeline-mobile::before {
+    left: 20px;
+    width: 2px;
+  }
+  
+  .timeline.timeline-mobile .timeline-mobile-item {
+    margin-left: 35px;
+    width: calc(100% - 50px);
+  }
+  
+  .timeline.timeline-mobile .timeline-mobile-item::before {
+    left: -20px;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #00d4ff;
+    background: rgba(10, 10, 46, 0.9);
+  }
+  
+  .timeline.timeline-mobile .timeline-mobile-item .content {
+    padding: 1rem;
+  }
+}
+
+/* Very Small Mobile Adjustments */
+@media (max-width: 400px) {
+  .timeline.timeline-mobile {
+    padding-left: 0.25rem;
+  }
+  
+  .timeline.timeline-mobile::before {
+    left: 15px;
+  }
+  
+  .timeline.timeline-mobile .timeline-mobile-item {
+    margin-left: 25px;
+    width: calc(100% - 40px);
+  }
+  
+  .timeline.timeline-mobile .timeline-mobile-item::before {
+    left: -15px;
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@keyframes drawLineMobile {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* ====================================
+   END TIMELINE MODES
+   ==================================== */
 
 /* Contact */
 .contact-form {
@@ -2069,7 +2267,7 @@ body::before {
     padding: 0 1rem;
   }
   
-  /* Timeline para tablets - transición a vertical */
+  /* Timeline - Now handled by JavaScript TimelineHandler
   .timeline {
     max-width: 100%;
     padding: 1.5rem 0;
@@ -2087,11 +2285,13 @@ body::before {
     transform: scaleY(0);
   }
   
-  .timeline-item {
+  .timeline-item,
+  .timeline-item.left,
+  .timeline-item.right {
     width: calc(100% - 70px);
     max-width: none;
-    left: 0 !important;
-    text-align: left !important;
+    left: 0;
+    text-align: left;
     margin-left: 45px;
     margin-bottom: 2.5rem;
     margin-right: 1rem;
@@ -2113,6 +2313,7 @@ body::before {
     width: 100%;
     box-sizing: border-box;
   }
+  */
 }
 
 @media (max-width: 480px) {
@@ -2238,7 +2439,7 @@ body::before {
     padding: 4px 8px;
   }
   
-  /* Timeline Mobile */
+  /* Timeline Mobile - Now handled by JavaScript TimelineHandler
   .timeline {
     margin: 0 auto;
     padding: 1rem 0;
@@ -2251,8 +2452,12 @@ body::before {
     width: 2px;
   }
   
-  .timeline-item {
+  .timeline-item,
+  .timeline-item.left,
+  .timeline-item.right {
     width: calc(100% - 50px);
+    left: 0;
+    text-align: left;
     margin-left: 35px;
     margin-right: 1rem;
   }
@@ -2273,6 +2478,7 @@ body::before {
     box-sizing: border-box;
     word-break: break-word;
   }
+  */
   
   .timeline-item .content h3 {
     font-size: 1rem;
@@ -2335,7 +2541,7 @@ body::before {
     font-size: 1rem;
   }
   
-  /* Timeline móvil - vertical con animaciones desde la izquierda */
+  /* Timeline - Now handled by JavaScript TimelineHandler
   .timeline {
     padding: 1rem 0;
     max-width: 100%;
@@ -2357,15 +2563,17 @@ body::before {
     }
   }
   
-  .timeline-item {
+  .timeline-item,
+  .timeline-item.left,
+  .timeline-item.right {
     width: 100%;
-    left: 0 !important;
-    text-align: left !important;
+    left: 0;
+    text-align: left;
     margin-left: 35px;
     margin-bottom: 2rem;
     transform: translateX(-30px);
     opacity: 0;
-    transition-delay: 0.8s; /* Más retraso en móviles */
+    transition-delay: 0.8s;
   }
   
   .timeline-item.show {
@@ -2385,6 +2593,7 @@ body::before {
     padding: 1.5rem;
     margin-left: 0;
   }
+  */
 
 }
 
@@ -2603,7 +2812,7 @@ body::before {
     margin-bottom: 0.5rem;
   }
   
-  /* Timeline vertical optimizada */
+  /* Timeline - Now handled by JavaScript TimelineHandler
   .timeline {
     padding: 1rem 0;
   }
@@ -2618,6 +2827,7 @@ body::before {
     margin-right: 0;
     width: 100%;
   }
+  */
   
   /* Footer optimizado para vertical */
   .modern-footer {

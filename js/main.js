@@ -809,7 +809,239 @@ function checkCooldownOnLoad() {
   }
 }
 
+// Timeline Responsive Handler
+class TimelineHandler {
+  constructor() {
+    this.timeline = null;
+    this.timelineItems = [];
+    this.currentMode = null;
+    this.breakpoint = 1037;
+    this.debounceTimeout = null;
+    this.resizeHandler = null;
+    
+    this.init();
+  }
+
+  init() {
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => this.setup());
+    } else {
+      // Use setTimeout to ensure all elements are rendered
+      setTimeout(() => this.setup(), 100);
+    }
+  }
+
+  setup() {
+    this.timeline = document.querySelector('.timeline');
+    this.timelineItems = Array.from(document.querySelectorAll('.timeline-item'));
+    
+    if (!this.timeline || this.timelineItems.length === 0) {
+      console.warn('Timeline elements not found');
+      return;
+    }
+
+    console.log('📍 Found timeline with', this.timelineItems.length, 'items');
+
+    // Store original classes for restoration
+    this.timelineItems.forEach((item, index) => {
+      const originalClasses = Array.from(item.classList);
+      item.dataset.originalClasses = JSON.stringify(originalClasses);
+      item.dataset.originalIndex = index;
+      console.log(`📋 Item ${index} original classes:`, originalClasses);
+    });
+
+    // Force initial check
+    this.checkViewport();
+    
+    // Add resize listener with proper binding
+    this.resizeHandler = () => {
+      console.log('🔄 Resize detected:', window.innerWidth);
+      this.checkViewport();
+    };
+    
+    window.addEventListener('resize', this.resizeHandler);
+    
+    // Also listen for orientation change on mobile devices
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        console.log('📱 Orientation changed');
+        this.checkViewport();
+      }, 100);
+    });
+    
+    console.log('🎯 Timeline Handler initialized');
+  }
+
+  checkViewport() {
+    const viewportWidth = window.innerWidth;
+    const shouldBeMobile = viewportWidth <= this.breakpoint;
+    
+    console.log(`📏 Viewport: ${viewportWidth}px, Should be mobile: ${shouldBeMobile}, Current mode: ${this.currentMode}`);
+    
+    if (shouldBeMobile && this.currentMode !== 'mobile') {
+      console.log('🔄 Switching to mobile mode');
+      this.switchToMobile();
+    } else if (!shouldBeMobile && this.currentMode !== 'desktop') {
+      console.log('🔄 Switching to desktop mode');
+      this.switchToDesktop();
+    } else {
+      console.log('✅ No mode change needed');
+    }
+  }
+
+  switchToMobile() {
+    console.log('📱 Switching to mobile timeline');
+    this.currentMode = 'mobile';
+    
+    // Add mobile class to timeline
+    this.timeline.classList.add('timeline-mobile');
+    this.timeline.classList.remove('timeline-desktop');
+    
+    // Clean up all timeline items
+    this.timelineItems.forEach((item, index) => {
+      // Remove original positioning classes but keep base classes
+      item.classList.remove('left', 'right');
+      
+      // Add mobile-specific class
+      item.classList.add('timeline-mobile-item');
+      
+      // Reset any transforms and opacity for clean slate
+      item.style.transform = '';
+      item.style.opacity = '';
+      
+      // Set uniform positioning (clear inline styles to let CSS take over)
+      item.style.marginLeft = '';
+      item.style.left = '';
+      item.style.textAlign = '';
+      
+      console.log('📱 Mobile item classes:', Array.from(item.classList));
+    });
+
+    // Trigger mobile animations after cleanup
+    setTimeout(() => this.triggerMobileAnimations(), 100);
+  }
+
+  switchToDesktop() {
+    console.log('🖥️ Switching to desktop timeline');
+    this.currentMode = 'desktop';
+    
+    // Add desktop class to timeline
+    this.timeline.classList.add('timeline-desktop');
+    this.timeline.classList.remove('timeline-mobile');
+    
+    // Restore original classes and positioning
+    this.timelineItems.forEach((item) => {
+      // Remove mobile classes
+      item.classList.remove('timeline-mobile-item');
+      
+      // Restore original classes including left/right positioning
+      const originalClasses = JSON.parse(item.dataset.originalClasses || '[]');
+      
+      // Clear all classes except the base ones
+      item.className = 'timeline-item';
+      
+      // Re-add original classes
+      originalClasses.forEach(className => {
+        if (className !== 'timeline-item') {
+          item.classList.add(className);
+        }
+      });
+      
+      // Clear mobile-specific styles
+      item.style.marginLeft = '';
+      item.style.left = '';
+      item.style.textAlign = '';
+      item.style.transform = '';
+      item.style.opacity = '';
+      
+      console.log('🔄 Restored item classes:', Array.from(item.classList));
+    });
+
+    // Trigger desktop animations
+    setTimeout(() => this.triggerDesktopAnimations(), 100);
+  }
+
+  triggerMobileAnimations() {
+    // Reset and re-trigger mobile animations
+    this.timelineItems.forEach((item, index) => {
+      item.classList.remove('show');
+      
+      setTimeout(() => {
+        item.classList.add('show');
+      }, index * 200 + 300); // Staggered animation
+    });
+  }
+
+  triggerDesktopAnimations() {
+    // Reset and re-trigger desktop animations using existing AOS or custom logic
+    this.timelineItems.forEach((item, index) => {
+      item.classList.remove('show');
+      
+      setTimeout(() => {
+        item.classList.add('show');
+      }, index * 150 + 200);
+    });
+  }
+
+  debounce(func, wait) {
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+    }
+    this.debounceTimeout = setTimeout(() => {
+      func.call(this);
+    }, wait);
+  }
+
+  // Method for manual testing
+  forceCheck() {
+    console.log('🔧 Manual viewport check triggered');
+    this.checkViewport();
+  }
+
+  // Method to get current status
+  getStatus() {
+    return {
+      currentMode: this.currentMode,
+      viewportWidth: window.innerWidth,
+      shouldBeMobile: window.innerWidth <= this.breakpoint,
+      timelineClasses: this.timeline ? Array.from(this.timeline.classList) : [],
+      itemCount: this.timelineItems.length
+    };
+  }
+}
+
+// Initialize Timeline Handler immediately
+let timelineHandler = null;
+
+// Initialize as soon as possible
+(function initTimelineImmediately() {
+  if (document.querySelector('.timeline')) {
+    timelineHandler = new TimelineHandler();
+  } else {
+    // If timeline not found, try again after DOM loads
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!timelineHandler) {
+        timelineHandler = new TimelineHandler();
+      }
+    });
+  }
+})();
+
 // Make functions globally available
 window.moveCarousel = moveCarousel;
 window.flipCard = flipCard;
 window.closeMobileMenu = closeMobileMenu;
+
+// Make timeline handler available globally for debugging
+window.timelineHandler = timelineHandler;
+
+// Add global debugging functions
+window.checkTimeline = () => {
+  if (timelineHandler) {
+    console.log('📊 Timeline Status:', timelineHandler.getStatus());
+    timelineHandler.forceCheck();
+  } else {
+    console.log('❌ Timeline handler not initialized');
+  }
+};
